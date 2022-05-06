@@ -1,0 +1,32 @@
+.wrapper{
+    height: 90px;
+}
+.img-container{
+    height: 70px;
+}
+.first-col{
+    height: 40px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 16% 94%);
+    background-color: #FFC727;
+}
+
+.icons{
+    border-radius: 50%;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4px;
+    margin-top: 2px;
+}
+
+.inner-warrper{
+    height:70px;
+    background-color: #FFC727;
+}
+
+.display-dropdown{
+    margin-left: 30rem;
+}

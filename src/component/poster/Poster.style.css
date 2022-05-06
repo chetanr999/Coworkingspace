@@ -1,0 +1,6 @@
+.main-container{
+    height:25rem;
+    background-color: #FFC727;
+    border-bottom-right-radius: 200px; 
+    clip-path: circle(50% at 50% 50%);
+}
