@@ -1,0 +1,110 @@
+.wrapper{
+    height: auto;
+}
+.cover-img{
+    height: 28rem;
+    background-color:#FFC727;
+    border-top-right-radius: 5pc;
+    border-bottom-right-radius: 15pc;
+    margin-top: 20px;
+}
+.img-dote{
+    margin-top: 5rem;
+    height: 20rem;
+    width: 6rem;
+    margin-left: 5rem;
+} 
+.ellipse-circle{
+    width: 70%;
+    z-index: -1;
+    margin-left: 20px;
+    margin-top: 2rem;
+}
+.ellipse-shape{
+    width: 33rem;
+    margin-top: -24rem !important;
+    margin-left: -6rem !important;
+}
+.half-circle{
+    width: 90px;
+    transform: rotate(-46deg);
+    margin-left: 2.9rem;
+    margin-top: -3rem !important;
+    
+}
+.cities-div{
+    margin-left: 5rem;
+}
+.live-spaces-text{
+    margin-left: -6rem !important;
+    font-size:4rem;
+    word-spacing: 4px;
+}
+
+
+@media (max-width: 425px) {
+    .cover-img{
+        height: 36rem;
+    }
+    .img-dote{
+        margin-top: 3rem;
+        height: 14rem;
+        width: 5rem;
+        margin-left: 1rem;
+    } 
+    .ellipse-circle{
+        width: 60%;
+        z-index: -1;
+        margin-left: 97px;
+        margin-top: -16rem;
+    }
+    .ellipse-shape{
+        width: 18rem;
+        margin-top: -19rem !important;
+        margin-left: 5rem !important;
+    }
+    .half-circle{
+        width: 90px;
+        transform: rotate(33deg);
+        margin-left: 20rem;
+        margin-top: -3rem !important;
+        
+    }
+    .cities-div{
+        margin-top: -70px !important;
+        width: 30%;
+    }
+    .live-spaces-text{
+        margin-left: 1px !important;
+        font-size:2rem;
+        word-spacing: 4px;
+    }
+    .mobile-live-spaces{
+        width: 50%;
+        margin-top: -10px !important;
+    }
+    .mobile-title{
+        margin-left: 20px;
+    }
+    .mobile-location{
+        width: 30%;
+        margin-top: -100px !important;
+    }
+
+    @media (max-width:375px) {
+        .ellipse-shape{
+            width: 17rem;
+            margin-top: -19rem !important;
+            margin-left: 5rem !important;
+        }
+        .half-circle{
+            width: 90px;
+            transform: rotate(25deg);
+            margin-left: 15rem;
+            margin-top: -3rem !important;
+            
+        }
+
+    }
+
+}

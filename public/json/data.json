@@ -1,0 +1,65 @@
+    {
+       "States":[
+           
+           {
+               "id":1,
+               "img":"../assest/Group (1).png",
+               "name":"Lucknow"
+           },
+           {
+               "id":2,
+               "img":"../assest/Group (2).png",
+               "name":"Delhi"
+           },
+           {
+               "id":3,
+               "img":"../assest/Group (3).png",
+               "name":"Gurugram"
+           },
+           {
+               "id":4,
+               "img":"../assest/Frame.png",
+               "name":"Noida"
+           },
+           {
+               "id":5,
+               "img":"../assest/Group (4).png",
+               "name":"Bangalore"
+           },
+           {
+               "id":6,
+               "img":"../assest/Group (5).png",
+               "name":"Hyderabad"
+           },
+           {
+               "id":7,
+               "img":"../assest/Group (6).png",
+               "name":"Mumbai"
+           },
+           {
+               "id":8,
+               "img":"../assest/Group (7).png",
+               "name":"Pune"
+           },
+           {
+               "id":9,
+               "img":"../assest/Group (8).png",
+               "name":"Indore"
+           },
+           {
+               "id":10,
+               "img":"../assest/Group (9).png",
+               "name":"Kochi"
+           },
+           {
+               "id":11,
+               "img":"../assest/Group (10).png",
+               "name":"Jaipur"
+           },
+           {
+               "id":12,
+               "img":"../assest/Group (11).png",
+               "name":"Goa"
+           }
+       ] 
+    }

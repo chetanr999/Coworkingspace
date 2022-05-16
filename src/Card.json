@@ -1,0 +1,52 @@
+[
+        
+        {
+            "id":1,
+            "img":"/assest/videoconference 1.png",
+            "title":"Looking for",
+            "name":"Virtual Office"
+        },
+        {
+            "id":2,
+            "img":"/assest/gallery 1.png",
+            "title":"Looking for",
+            "name":"Art Gallery"
+        },
+        {
+            "id":3,
+            "img":"/assest/camera-film 1.png",
+            "title":"Looking for",
+            "name":"Film Shoot"
+        },
+        {
+            "id":4,
+            "img":"/assest/working 1.png",
+            "title":"Looking for",
+            "name":"Co-working Space"
+        },
+        {
+            "id":5,
+            "img":"/assest/living-room 1.png",
+            "title":"Looking for",
+            "name":"Co-living Space"
+        },
+        {
+            "id":6,
+            "img":"/assest/round-table 1.png",
+            "title":"Looking for",
+            "name":"Office Space"
+        },
+        {
+            "id":7,
+            "img":"/assest/wedding-arch 1.png",
+            "title":"Looking for",
+            "name":"Pre-wedding Shoot"
+        },
+        {
+            "id":8,
+            "img":"/assest/pg 1.png",
+            "title":"Looking for",
+            "name":"PG Space"
+        }
+
+    ]

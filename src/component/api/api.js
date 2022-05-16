@@ -1,0 +1,1 @@
+export const url='cozone.divashudh.com/api/'
