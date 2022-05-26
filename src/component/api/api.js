@@ -1,1 +1,1 @@
-export const url='cozone.divashudh.com/api/'
+export const URL='cozone.divashudh.com/api/'

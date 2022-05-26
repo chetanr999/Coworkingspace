@@ -1,0 +1,41 @@
+[
+    {
+        "name":"Day Pass",
+        "title":"Book and experience the un-conventional work culture.",
+        "price":"₹499.00/day",
+        "Enquire":"Enquire",
+        "img":"/assest/image 1.png"
+    },
+    {
+        "name":"Hot Desk",
+        "title":"Book and experience the un-conventional work culture.",
+        "price":"₹8,499.00/month",
+        "Enquire":"Enquire",
+        "img":"/assest/image 2.png",
+        "start":"starting from"
+    },
+    {
+        "name":"Dedicated Desk",
+        "title":"Book and experience the un-conventional work culture.",
+        "price":"₹11,499.00/month",
+        "Enquire":"Enquire",
+        "img":"/assest/image 3.png",
+        "start":"starting from"
+    },
+    {
+        "name":"Private Cabin",
+        "title":"Book and experience the un-conventional work culture.",
+        "price":"₹17,000.00/per seat",
+        "Enquire":"Enquire",
+        "img":"/assest/image 4.png",
+        "start":"starting from"
+    },
+    {
+        "name":"Office Space",
+        "title":"Book and experience the un-conventional work culture.",
+        "price":"on request",
+        "Enquire":"Enquire",
+        "img":"/assest/image 5.png",
+        "start":"starting from"
+    }
+]

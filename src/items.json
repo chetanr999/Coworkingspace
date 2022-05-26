@@ -1,0 +1,47 @@
+[
+    {
+        "id":"1",
+        "icon":"/assest/office1.png",
+        "name":"WIFI/Internet"
+    },
+    {
+        "id":"2",
+        "icon":"/assest/office2.png",
+        "name":"Comfy Workstations"
+    },
+    {
+        "id":"3",
+        "icon":"/assest/office3.png",
+        "name":"Meeting Rooms"
+    },
+    {
+        "id":"4",
+        "icon":"/assest/office4.png",
+        "name":"Printer"
+    },
+    {
+        "id":"5",
+        "icon":"/assest/office5.png",
+        "name":"Pantry"
+    },
+    {
+        "id":"6",
+        "icon":"/assest/office6.png",
+        "name":"Car /Bike Parking available"
+    },
+    {
+        "id":"7",
+        "icon":"/assest/office7.png",
+        "name":"Reception"
+    },
+    {
+        "id":"8",
+        "icon":"/assest/office8.png",
+        "name":"Super Housekeeping"
+    },
+    {
+        "id":"9",
+        "icon":"/assest/office9.png",
+        "name":"Tea/Coffee"
+    }
+    ]

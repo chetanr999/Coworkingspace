@@ -11,16 +11,16 @@ function LiveSpaces() {
               <div className="row">
                 <div className="col-lg-4">
                   <img
-                    src="https://i.postimg.cc/9QmbQVMG/Group-8.png"
+                    src="/assest/Group 8.png"
                     alt=""
                     className="img-fluid img-dote"
                   />
                 </div>
-                <div className="col-lg-8">
+                <div className="col-lg-8 live-spaces-imgs">
                   <img
                     src="/assest/circle.png"
                     alt=""
-                    className="img-fluid ellipse-circle"
+                    className="ellipse-circle"
                   />
                   <img
                     src="/assest/Ellipse 18.png"
@@ -45,7 +45,7 @@ function LiveSpaces() {
                 </div>
               </div>
               <div className="row d-flex flex-row">
-                <div className="col-lg-6 mt-5 ms-5 mobile-location">
+                <div className="col-lg-6 mt-5 ms-lg-2 mobile-location">
                     <h1 className="text-white fw-bold">700+</h1>
                     <h4 className="fw-bold">Locations</h4>
                 </div>
@@ -58,15 +58,15 @@ function LiveSpaces() {
                 </div>
               </div>
               <div className="row d-flex flex-row">
-                <div className="col-lg-3 mt-5 cities-div">
+                <div className="col-lg-3 mt-5 ms-lg-5 cities-div">
                     <h1 className="text-white fw-bold">18</h1>
                     <h4 className="fw-bold">Cities</h4>
                 </div>
-                <div className="col-lg-5">
+                <div className="col-lg-5 col-md-3 col-sm-2 last-dots">
                 <img
                   src="/assest/Group 9.png"
                   alt=""
-                  className="img-fluid w-25 mt-5 ms-6 float-end"
+                  className="img-fluid w-25 mt-5 ms-6 ms-md-0 float-end"
                 />
                 </div>
               </div>

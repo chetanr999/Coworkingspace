@@ -1,0 +1,25 @@
+.card-width{
+    width: 90% !important;
+    margin-left: 1rem;
+    border: 1px solid gray;
+}
+
+@media(max-width:1440px){
+    .coworking-card{
+        width: 92% !important;
+        margin-left: 1.6rem !important;
+        margin-bottom: 1rem !important;
+    }
+}
+@media(max-width:768px){
+    .coworking-card{
+        width: 90% !important;
+    }
+}
+
+@media(max-width:425px){
+    .coworking-card{
+        width: 80%;
+    }
+}
+

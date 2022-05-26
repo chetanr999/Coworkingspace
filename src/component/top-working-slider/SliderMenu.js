@@ -3,7 +3,7 @@ import "./SliderMenu.style.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Axios from "axios";
+import { Link } from "react-router-dom";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -26,13 +26,16 @@ function SamplePrevArrow(props) {
 const SliderMenu = () => {
   const [slider, setSlider] = useState([]);
 
+ 
   useEffect(() => {
-    fetch("https://cozone.divashudh.com/api/get_top_coworking")
+    fetch("https://cozone.divashudh.com/api/get_cities/1")
       .then((res) => res.json())
       .then((res) => {
         setSlider(res.data);
       });
   }, []);
+
+  const defaultImg = "/assest/Rectangle 18.png";
 
   var settings = {
     defaultArrows: false,
@@ -51,7 +54,16 @@ const SliderMenu = () => {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
+          dots: false,
+        },
+      },
+
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          initialSlide: 3,
         },
       },
       {
@@ -76,6 +88,7 @@ const SliderMenu = () => {
           slidesToScroll: 1,
         },
       },
+     
     ],
   };
 
@@ -84,7 +97,7 @@ const SliderMenu = () => {
       <section>
         <div className="container-fluid img-cover-div mt-5">
           <div className="row d-flex flex-row upper-row">
-            <div className="col-lg-3 flex-row d-flex mt-5">
+            <div className="col-lg-3 col-md-3 flex-row d-flex mt-5">
               <img
                 src="/assest/ellipse 29.png"
                 className="img-fluid first-div-circle"
@@ -103,7 +116,7 @@ const SliderMenu = () => {
                 />
               </div>
             </div>
-            <div className="col-lg-5">
+            <div className="col-lg-5 col-md-5">
               <div className="d-flex flex-row mt-5">
                 <h1 className="ms-5">Top Working in India</h1>
                 <img
@@ -113,7 +126,7 @@ const SliderMenu = () => {
                 />
               </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 col-md-4">
               <img
                 src="/assest/Ellipse 36.png"
                 className="half-circle-rotate"
@@ -127,13 +140,19 @@ const SliderMenu = () => {
               <Slider {...settings}>
                 {slider.map((e) => {
                   return (
-                    <div>
-                      <img
-                        src="/assest/Rectangle 18.png"
-                        alt=""
-                        className="img-fluid slider-img"
-                      />
-                      <h3 className="text-center text-white">{e.location}</h3>
+                    <div key={e.id}>
+                      <Link
+                        className="text-decoration-none"
+                        to={'/coworking/city/'+ e.id+"/"+e.location}
+                      //  key={e.id}
+                      >
+                        <img
+                           src={e.image ? defaultImg : e.image }
+                          alt=""
+                          className="img-fluid slider-img"
+                        />
+                        <h3 className="text-center text-white">{e.location}</h3>
+                      </Link>
                     </div>
                   );
                 })}

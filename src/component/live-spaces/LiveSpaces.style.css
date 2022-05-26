@@ -14,22 +14,25 @@
     width: 6rem;
     margin-left: 5rem;
 } 
+.live-spaces-imgs{
+    margin-top: 4rem;
+}
 .ellipse-circle{
     width: 70%;
     z-index: -1;
-    margin-left: 20px;
+    margin-left: -9px !important;
     margin-top: 2rem;
 }
 .ellipse-shape{
-    width: 33rem;
-    margin-top: -24rem !important;
-    margin-left: -6rem !important;
+    width: 50rem !important;
+    margin-top: -19rem !important;
+    margin-left: -5rem !important;
 }
 .half-circle{
     width: 90px;
-    transform: rotate(-46deg);
-    margin-left: 2.9rem;
-    margin-top: -3rem !important;
+    transform: rotate(360deg);
+    margin-left: 6rem;
+    margin-top: 0rem ;
     
 }
 .cities-div{
@@ -41,10 +44,136 @@
     word-spacing: 4px;
 }
 
+@media(max-width:2560px) {
+    .cover-img{
+        height: auto;
+    }
+    .ellipse-circle{
+        margin-left: -9px !important;
+        margin-top: -2rem;
+    }
+    .ellipse-shape{
+        width: 99% !important;
+        margin-left: -6rem !important;
+        margin-top: -24rem !important;
+    }
+    .half-circle{
+        width: 90px;
+        transform: rotate(359deg);
+        margin-left: 11rem !important;
+        margin-top: 0rem !important;
+        
+    }
+}
+
+@media (max-width:1440px) {
+    .cover-img{
+        height: auto;
+    }
+    .ellipse-circle{
+        margin-left: -9px !important;
+        margin-top: -2rem;
+    }
+    .ellipse-shape{
+        width: 17rem;
+        margin-top: -26rem !important;
+        margin-left: -6rem !important;
+    }
+    .half-circle{
+        width: 90px;
+        transform: rotate(34-0deg);
+        margin-left: 5rem !important;
+        margin-top: 0rem !important;
+        
+    }
+
+}
+
+
+@media(max-width:1024px){
+    .cover-img{
+        height: auto;
+    }
+
+    .ellipse-circle{
+        margin-left: -9px !important;
+        margin-top: 2rem;
+    }
+    .ellipse-shape{
+        width: 17rem;
+        margin-top: -18rem !important;
+        margin-left: -4rem !important;
+    }
+    .half-circle{
+        width: 90px;
+        transform: rotate(355deg);
+        margin-left: 2.1rem !important;
+        margin-top: 0rem !important;
+        
+    }
+      
+}
+
+@media(max-width:768px){
+    .cover-img{
+        height: auto;
+    }
+    .ellipse-circle{
+        width: 50%;
+        margin-left: 140px !important;
+        margin-top: -20rem !important;
+    }
+    .ellipse-shape{
+        width: 68% !important;
+        margin-top: -25rem !important;
+        margin-left: 5rem !important;
+    }
+    .half-circle{
+        width: 90px;
+        transform: rotate(306deg);
+        margin-left: 37.1rem !important;
+        margin-top: -68rem !important;
+        
+    }
+    .img-dote{
+        margin-top: 3rem;
+        height: 14rem;
+        width: 5rem;
+        margin-left: 1rem;
+    } 
+    .cities-div{
+        margin-top: -52px !important;
+        width: 30%;
+        margin-left: 20rem !important;
+    }
+    .live-spaces-text{
+        margin-left: 138px !important;
+        font-size: 3rem;
+        word-spacing: 4px;
+        margin-top: 2rem;
+    }
+    .mobile-live-spaces{
+        width: 50%;
+        margin-top: -10px !important;
+    }
+    .mobile-title{
+        margin-left: 188px;
+    }
+    .mobile-location{
+        width: 30%;
+        margin-top: -22px !important;
+        margin-left: 17rem !important;
+    }
+    .last-dots{
+        margin-left: -8rem !important;
+    }
+}
+
+
 
 @media (max-width: 425px) {
     .cover-img{
-        height: 36rem;
+        height: auto
     }
     .img-dote{
         margin-top: 3rem;
@@ -55,13 +184,13 @@
     .ellipse-circle{
         width: 60%;
         z-index: -1;
-        margin-left: 97px;
-        margin-top: -16rem;
+        margin-left: 100px !important;
+        margin-top: -21rem !important;
     }
     .ellipse-shape{
-        width: 18rem;
-        margin-top: -19rem !important;
-        margin-left: 5rem !important;
+        width: 81% !important;
+        margin-top: -24rem !important;
+        margin-left: 4rem !important;
     }
     .half-circle{
         width: 90px;
@@ -71,30 +200,36 @@
         
     }
     .cities-div{
-        margin-top: -70px !important;
+        margin-top: -28px !important;
         width: 30%;
+        margin-left: 11rem !important;
     }
     .live-spaces-text{
-        margin-left: 1px !important;
-        font-size:2rem;
-        word-spacing: 4px;
+        margin-left: 25px !important;
+    font-size: 3rem;
+    word-spacing: 4px;
+    margin-top: -2rem !important;
     }
     .mobile-live-spaces{
         width: 50%;
         margin-top: -10px !important;
     }
     .mobile-title{
-        margin-left: 20px;
+        margin-left: 73px !important;
     }
     .mobile-location{
         width: 30%;
-        margin-top: -100px !important;
+        margin-top: -75px !important;
+        margin-left: 7rem !important;
+    }
+    .last-dots{
+        margin-left: -17rem !important;
     }
 
     @media (max-width:375px) {
         .ellipse-shape{
-            width: 17rem;
-            margin-top: -19rem !important;
+            width: 78% !important;
+            margin-top: -24rem !important;
             margin-left: 5rem !important;
         }
         .half-circle{
@@ -106,5 +241,6 @@
         }
 
     }
+  
 
 }

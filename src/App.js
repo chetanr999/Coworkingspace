@@ -8,10 +8,13 @@ import FromUs from './component/from-us/FromUs';
 import SliderMenu from './component/top-working-slider/SliderMenu';
 import Partners from './component/coworking-partners/Partners';
 import Footer from './component/footer/Footer';
-
-
+import WorkingDom from './component/coworking-workingdom/CoWorkingDom';
+import Coworking from './component/coworking-spaces/Index';
+import Coliving from './component/coliving-spaces/Index';
+import CoLivingDom from './component/coliving-workingdom/CoLivingDom';
 
 function App() {
+
   return (
     <div className='app'>
       <Routes>
@@ -23,6 +26,10 @@ function App() {
         <Route path='/top-working'  element={<SliderMenu />} />
         <Route path='/coworking-partners'  element={<Partners />} />
         <Route path='/footer'  element={<Footer />} />
+        <Route path='/coworking/city/:id/:name' element={<Coworking />} />
+        <Route path="/coliving/city/:id/:name" element={<Coliving />} />
+        <Route path="/coworking/coworkingDom/:id/:name" element={<WorkingDom />} />
+        <Route path="/coliving/colivingDom/:id/:name" element={<CoLivingDom />} />
       </Routes>
     </div>
   );

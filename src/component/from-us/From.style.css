@@ -12,6 +12,7 @@
 .z-position{
     margin-top: 20px;
     margin-left: -20px;
+    font-size: 0rem;
 }
 
 .star-img{
@@ -22,11 +23,26 @@
     margin-top: 30px;
 }
 
-@media(max-width:425px){
+@media(max-width:768px){
+    .ellipse-background-img{
+        margin-top: -3px;
+        width: 85% !important;
+    }
+    .text{
+        font-size:3rem;
+    }
     .z-position{
         margin-top: 20px;
-        margin-left: -15px;
-        font-size: px;
+        margin-left: -7px;
+        font-size: 2rem !important;
+    }
+}
+
+@media(max-width:425px){
+    .z-position{
+        margin-top: 20px !important;
+        margin-left: -7px !important;
+        font-size: 20px !important;
     }
     .ellipse-circle-img{
         width: 110px;

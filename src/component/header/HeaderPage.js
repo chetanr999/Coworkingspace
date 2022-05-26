@@ -13,25 +13,19 @@ import { Link } from "react-router-dom";
 import PosterPage from "../poster/PosterPage";
 
 function HeaderPage() {
-  const [country, setCountry] = useState([]);
-
-
+  const [city, setCity] = useState([]);
 
   useEffect(() => {
-    fetch("https://cozone.divashudh.com/api/get_country")
+    fetch("https://cozone.divashudh.com/api/get_cities")
       .then((res) => res.json())
       .then((res) => {
-        setCountry(res.data);
+        setCity(res.data);
       });
   }, []);
 
+  const defaultImg = "https://i.postimg.cc/qBNCdGpt/gallery-1.png";
 
-  const handlerCity = () =>{
-      
-  }
-  
 
-  const defaultImg = 'https://i.postimg.cc/qBNCdGpt/gallery-1.png'
 
   return (
     <>
@@ -39,33 +33,47 @@ function HeaderPage() {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-2 col-md-2 img-container bg-white">
-              <img
-                src="https://i.postimg.cc/0r1MmzSF/Group.png"
-                className="img-fluid mx-4 mt-3 col-md-4 col-lg-2 col-sm-4"
-                alt="logo"
-              />
+              <Link to={"/"}>
+                <img
+                  src="https://i.postimg.cc/0r1MmzSF/Group.png"
+                  className="img-fluid mx-4 mt-3 col-md-4 col-lg-2 col-sm-4"
+                  alt="logo"
+                />
+              </Link>
             </div>
             <div className="col-lg-10 col-mg-8">
               <div className="row">
                 <div className="col-lg-12 col-md-12 icon-container d-flex justify-content-end">
                   <div className="col-lg-5 col-md-12 d-flex justify-content-end me-3">
                     <div className="icons">
+                      <Link to={'#'} className="pe-auto">
                       <FontAwesomeIcon icon={faFacebook} color="#FFC727" />
+                      </Link>
                     </div>
                     <div className="icons">
+                      <Link to={'#'} className="pe-auto">
                       <FontAwesomeIcon icon={faEnvelope} color="#FFC727" />
+                      </Link>
                     </div>
                     <div className="icons">
+                      <Link to={'#'} className="pe-auto">
                       <FontAwesomeIcon icon={faLinkedin} color="#FFC727" />
+                      </Link>
                     </div>
                     <div className="icons">
+                      <Link to={'#'} className="pe-auto">
                       <FontAwesomeIcon icon={faYoutube} color="#FFC727" />
+                      </Link>
                     </div>
                     <div className="icons">
+                      <Link to={'#'} className="pe-auto">
                       <FontAwesomeIcon icon={faWhatsapp} color="#FFC727" />
+                      </Link>
                     </div>
                     <div className="icons">
+                      <Link to={'#'} className="pe-auto">
                       <FontAwesomeIcon icon={faInstagram} color="#FFC727" />
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -86,22 +94,30 @@ function HeaderPage() {
                       </Link>
 
                       <ul
-                        className="dropdown-menu"
+                        className="dropdown-menu menu-scroll mt-2"
                         aria-labelledby="dropdownMenuLink"
                       >
-                        {country.map((e) => {
-                          return(
-                          <li>
-                            <Link className="dropdown-item d-flex flex-row" to="#" key={e.id}>
-                              <img src={e.flag?defaultImg:e.flag} className="img-fluid country-img" alt="logo"/>
-                              <p className="ms-2" onClick={handlerCity}>{e.name}</p>
-                            </Link>
-                          </li>
-                          )
+                     {city.map((e) => {
+                          return (
+                            <li>
+                              <Link
+                                className="dropdown-item d-flex flex-row"
+                                to={'/coworking/city/'+ e.id+"/"+e.location}
+                                key={e.id}
+                              >
+                                <img
+                                  src={e.image ? e.image : defaultImg}
+                                  className="img-fluid country-img"
+                                  alt="logo"
+                                />
+                                <p className="ms-2">{e.location}</p>
+                              </Link>
+                            </li>
+                          );
                         })}
-                       
                       </ul>
                     </div>
+                   
                     <div className="dropdown">
                       <Link
                         className="btn dropdown-toggle mobile-view"
@@ -115,24 +131,31 @@ function HeaderPage() {
                       </Link>
 
                       <ul
-                        className="dropdown-menu"
+                        className="dropdown-menu menu-scroll mt-2"
                         aria-labelledby="dropdownMenuLink"
                       >
-                        <li>
-                          <Link className="dropdown-item" to="#">
-                            Action
-                          </Link>
-                        </li>
-                        <li>
-                          <Link className="dropdown-item" to="#">
-                            Another action
-                          </Link>
-                        </li>
-                        <li>
-                          <Link className="dropdown-item" to="#">
-                            Something else here
-                          </Link>
-                        </li>
+                        {city.map((e) => {
+                          return (
+                            <li>
+                              <Link
+                                className="dropdown-item d-flex flex-row"
+                                to={'/coliving/city/'+ e.id+"/"+e.location}
+                                state={{
+                                  // id:e.id,
+                                  name:e.location
+                                }}
+                                key={e.id}
+                              >
+                                <img
+                                   src={e.image ? e.image : defaultImg}
+                                  className="img-fluid country-img"
+                                  alt="logo"
+                                />
+                                <p className="ms-2">{e.location}</p>
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                     <div className="dropdown">
@@ -148,22 +171,22 @@ function HeaderPage() {
                       </Link>
 
                       <ul
-                        className="dropdown-menu"
+                        className="dropdown-menu menu-scroll mt-2"
                         aria-labelledby="dropdownMenuLink"
                       >
                         <li>
                           <Link className="dropdown-item" to="#">
-                            Action
+                            Noida
                           </Link>
                         </li>
                         <li>
                           <Link className="dropdown-item" to="#">
-                            Another action
+                            Lucknow
                           </Link>
                         </li>
                         <li>
                           <Link className="dropdown-item" to="#">
-                            Something else here
+                            Delhi
                           </Link>
                         </li>
                       </ul>
@@ -181,22 +204,27 @@ function HeaderPage() {
                       </Link>
 
                       <ul
-                        className="dropdown-menu"
+                        className="dropdown-menu menu-scroll mt-2"
                         aria-labelledby="dropdownMenuLink"
                       >
                         <li>
                           <Link className="dropdown-item" to="#">
-                            Action
+                            List your Space
                           </Link>
                         </li>
                         <li>
                           <Link className="dropdown-item" to="#">
-                            Another action
+                            About CoFynd
                           </Link>
                         </li>
                         <li>
                           <Link className="dropdown-item" to="#">
-                            Something else here
+                            Contact CoFynd
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="dropdown-item" to="#">
+                            Cofynd Blog
                           </Link>
                         </li>
                       </ul>
@@ -204,11 +232,8 @@ function HeaderPage() {
                     <div className="dropdown">
                       <Link
                         className="btn mobile-view-425 mobile-375"
-                        to="#"
-                        // role="button"
-                        id="dropdownMenuLink"
-                        // data-bs-toggle="dropdown"
-                        // aria-expanded="false"
+                        to=""
+                        id="dropdownMenuLink"                        
                       >
                         +91 9999 999999
                       </Link>
@@ -219,7 +244,7 @@ function HeaderPage() {
             </div>
           </div>
         </div>
-        <PosterPage />
+        {/* <PosterPage /> */}
       </section>
     </>
   );

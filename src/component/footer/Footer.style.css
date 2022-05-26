@@ -42,10 +42,24 @@
     bottom: 27px;
     right: 60px;
 }
+@media(max-width:1024px){
+    .footer-cover{
+        height: auto;
+        border-top-right-radius: 30%;
+       
+    }
+}
+@media(max-width:768px){
+    .footer-cover{
+        height: auto;
+        border-top-right-radius: 30%;
+       
+    }
+}
 
 @media(max-width:425px){
     .footer-cover{
-        height: 75rem;
+        height: auto;
         border-top-right-radius: 30%;
        
     }
@@ -63,8 +77,9 @@
 
 @media(max-width:375px){
     .footer-cover{
-        height: 80rem;
+        height: 80rem !important;
         border-top-right-radius: 30%;
        
     }
 }
+

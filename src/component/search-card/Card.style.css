@@ -6,7 +6,7 @@
     position: relative;
     left:10px;
     z-index: -1;
-    width: 14%;
+    width: 15%;
     top: 9px;
 }
 .card{
@@ -32,12 +32,36 @@
 .full-circle-img{
     position: absolute;
     left: 2px;
-    top: 44rem;
+    top: 50rem;
     height:16rem;
+}
+.mobile-card-logo{
+    width: 60%;
+    height: auto;
+    border-radius: 5%;
 }
 @media(max-width:425px){
     .card{
-        width: 70%;
+        width: 70% !important;
+        align-items: center;
+    }
+    .mobile-card-logo{
+        margin-left: 20px;
+    }
+}
+@media(max-width:768px){
+    .small{
+        width: 80%;
+    }
+    .circle{
+        width: 50%;
+        top: 9px;
+    }
+    .full-circle-img{    
+        top: 58rem;
+    }
+    .card{
+        width: 30%;
         align-items: center;
     }
     .mobile-card-logo{

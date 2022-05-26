@@ -12,8 +12,12 @@
   content: "" !important;
 }
 
+.slick-next{
+  right: -21px !important;
+}
+
 .img-cover-div {
-  height: 33rem;
+  height: auto;
   width: 100%;
   background: #ffc727;
   border-bottom-left-radius: 35%;
@@ -43,13 +47,13 @@
 .small-circle {
   width: 50px;
   z-index: -1;
-  margin-left: -20px !important;
+  margin-left: -50px !important;
 }
 .half-circle-rotate {
   position: absolute;
-  right: 2.1rem;
-  width: 5.1rem;
-  transform: rotate(-31deg);
+    right: 2.2rem;
+    width: 5.1rem;
+    transform: rotate(-31deg);
 }
 
 .slider-img {
@@ -65,12 +69,12 @@
 }
 .ellipse-39-img{
     margin-top: -50px !important;
-    margin-right: -60px !important;
+    margin-right: -30px !important;
 }
 
 @media(max-width:425px){
   .img-cover-div {
-    height: 38rem;
+    height: auto;
   }
   .half-circle-rotate {
     right: 0rem;
