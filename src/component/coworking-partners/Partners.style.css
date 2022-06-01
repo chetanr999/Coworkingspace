@@ -77,7 +77,17 @@
   margin-top: 40px !important;
 }
 
-@media(max-width:1440px){
+/* @media(max-width:2560px){
+  .web-circle {
+    width: 10%;
+    z-index: -1;
+}
+.x-larger{
+  margin-left: -2rem !important;
+}
+} */
+
+@media (max-width: 1440px) {
   .rectangle25 {
     margin-left: 120px !important;
     width: 20%;
@@ -86,8 +96,18 @@
     margin-left: -1rem !important;
     margin-top: -26rem !important;
   }
+  .web-circle {
+    width: 18%;
+    z-index: -1;
+  }
+  .x-larger {
+    margin-left: 24rem !important;
+  }
+  .web-lg{
+    margin-left: 14rem !important; 
+   }
 }
-@media(max-width:1024px){
+@media (max-width: 1024px) {
   .rectangle25 {
     margin-left: 120px !important;
     width: 20%;
@@ -95,6 +115,16 @@
   .rectangle24 {
     margin-left: 2rem !important;
     margin-top: -19rem !important;
+  }
+  .web-circle {
+    width: 20%;
+    z-index: -1;
+  }
+  .x-larger {
+    margin-left: 18rem !important;
+  }
+  .web-lg{
+   margin-left: 13rem !important; 
   }
 }
 
@@ -114,7 +144,10 @@
     width: 95%;
     margin-left: 17px !important;
   }
-}
+  .web-lg{
+    margin-left: 12rem !important; 
+   }
+  }
 
 @media (max-width: 425px) {
   .mobile-view-container {
@@ -181,16 +214,19 @@
     margin-left: -30px !important;
     margin-top: 40px !important;
   }
-  .mobile-view {
+  /* .mobile-view {
     display: flex;
     flex-direction: column;
     font-size: 12px;
     margin-left: -13px !important;
     margin-right: 137px !important;
-  }
+  } */
   .mobile-view-rightarrow {
     margin-left: 112px;
   }
+  .web-lg{
+    margin-left: 9rem !important; 
+   }
 }
 @media (max-width: 375px) {
   .mobile-view-container {
@@ -208,7 +244,7 @@
     margin-left: -30px !important;
   }
   .img38 {
-    margin-top: -182px !important;
+    margin-top: -201px !important;
     margin-right: 10px !important;
   }
   .card-container-partners {
@@ -257,14 +293,20 @@
     margin-left: -30px !important;
     margin-top: 40px !important;
   }
-  .mobile-view {
+  /* .mobile-view {
     display: flex;
     flex-direction: column;
     font-size: 12px;
-    margin-left: -13px !important;
+    margin-left: 13px !important;
     margin-right: 137px !important;
-  }
+  } */
   .mobile-view-rightarrow {
     margin-left: 112px;
   }
+  .x-larger{
+    margin-left: 15rem !important;
+  }
+  .web-lg{
+    margin-left: 9rem !important; 
+   }
 }

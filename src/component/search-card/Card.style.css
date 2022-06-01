@@ -12,17 +12,18 @@
 .card{
     height: 8rem;
     margin: 20px 10px;
-    border-radius: 30px;
-    box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
-    background-color: rgba(255, 255, 255, 0.2);
+    /* border-radius: 30px; */
+    /* box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2); */
+    background-color: rgba(255, 255, 255, 0.089);
     text-align: center;
     backdrop-filter: blur(14px);
     transition: 0.3s;
-    width: 20%;
+    width: auto;
     margin-top: 20px;
+    border: none;
 }
 .card:hover{
-    box-shadow: 10px 8px 16px 0 rgba(99, 97, 97, 0.2);
+    /* box-shadow: 10px 8px 16px 0 rgba(99, 97, 97, 0.2); */
 }
 .half-circle-img{
     position: absolute;
@@ -36,22 +37,53 @@
     height:16rem;
 }
 .mobile-card-logo{
+    width: 100%;
+    height: 8rem;
+    border-radius: 30px;
+    border: 2px solid rgb(224, 224, 224);
+    backdrop-filter: blur(14px);
+    transition: 0.3s;
+    position: relative;
+    opacity: .7;
+}
+.mobile-card-logo:hover{
+    border: 1px solid rgb(21, 18, 226);
+    opacity: 1;
+    box-shadow: 10px 8px 16px 0 rgba(99, 97, 97, 0.2); 
+}
+.location-name{
+    position: absolute;
+    bottom: 4px;
+    color: rgba(10, 10, 10, 0.952);
+    font-weight: bold;
+}
+.small{
     width: 60%;
-    height: auto;
-    border-radius: 5%;
+    margin-left: 8rem;
 }
-@media(max-width:425px){
-    .card{
-        width: 70% !important;
-        align-items: center;
+
+/* @media(max-width:2560px){
+    .small {
+        width: 46%;
+        margin-left: 19rem;
     }
-    .mobile-card-logo{
-        margin-left: 20px;
+    .z-position {
+        margin-top: 60px;
+        margin-left: -20px;
+        font-size: 0rem;
+    }
+} */
+
+@media(max-width:1024px){
+    .small{
+        width: 60%;
+        margin-left: 5rem;
     }
 }
+
 @media(max-width:768px){
     .small{
-        width: 80%;
+        width: 70%;
     }
     .circle{
         width: 50%;
@@ -62,6 +94,19 @@
     }
     .card{
         width: 30%;
+        align-items: center;
+    }
+    .mobile-card-logo{
+        margin-left: 20px;
+    }
+}
+@media(max-width:425px){
+    .small{
+        width: 50%;
+        margin-left: 4rem;
+    }
+    .card{
+        width: 70% !important;
         align-items: center;
     }
     .mobile-card-logo{

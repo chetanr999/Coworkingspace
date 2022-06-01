@@ -35,8 +35,8 @@ function HeaderPage() {
             <div className="col-lg-2 col-md-2 img-container bg-white">
               <Link to={"/"}>
                 <img
-                  src="https://i.postimg.cc/0r1MmzSF/Group.png"
-                  className="img-fluid mx-4 mt-3 col-md-4 col-lg-2 col-sm-4"
+                  src="/assest/cozonlogo.png"
+                  className="img-fluid mx-4 mt-2 col-md-4 col-lg-2 col-sm-4 col-12 logo-img"
                   alt="logo"
                 />
               </Link>
@@ -110,7 +110,7 @@ function HeaderPage() {
                                   className="img-fluid country-img"
                                   alt="logo"
                                 />
-                                <p className="ms-2">{e.location}</p>
+                                <p className="ms-1">{e.location}</p>
                               </Link>
                             </li>
                           );
@@ -140,10 +140,10 @@ function HeaderPage() {
                               <Link
                                 className="dropdown-item d-flex flex-row"
                                 to={'/coliving/city/'+ e.id+"/"+e.location}
-                                state={{
-                                  // id:e.id,
-                                  name:e.location
-                                }}
+                                // state={{
+                                //   // id:e.id,
+                                //   name:e.location
+                                // }}
                                 key={e.id}
                               >
                                 <img
@@ -151,7 +151,7 @@ function HeaderPage() {
                                   className="img-fluid country-img"
                                   alt="logo"
                                 />
-                                <p className="ms-2">{e.location}</p>
+                                <p className="ms-1">{e.location}</p>
                               </Link>
                             </li>
                           );

@@ -5,6 +5,9 @@
 .img-container{
     height: 80px;
 }
+.logo-img{
+    width: 100%;
+}
 .icon-container{
     height: 30px;
     background: url('https://i.postimg.cc/rmHxtHTF/Rectangle-4.png');
@@ -93,6 +96,9 @@
     .mobile-view-425{
         display: none;
     }
+    .logo-img{
+        width: 50%;
+    }
 }
 
 @media(max-width:375px){
@@ -116,6 +122,9 @@
     .mobile-375{
         font-size: 8px;
         display: none;
+    }
+    .logo-img{
+        width: 50%;
     }
 
 }

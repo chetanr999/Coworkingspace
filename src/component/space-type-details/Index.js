@@ -13,8 +13,8 @@ import {
 
 import ListData from "../../DataList.json";
 import Footer from "../footer/Footer";
-import "./Index.style.css";
 import Swal from "sweetalert2";
+
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -61,23 +61,24 @@ function SamplePrevArrow(props) {
   );
 }
 
-const Index = (props) => {
+const Index = () => {
   const [data, setData] = useState([]);
   const [list, setList] = useState(ListData);
   const [img, setImg] = useState([]);
-  const [showdata, setShowData] = useState([]);
-  const [filter, setFilter] = useState([]);
-  const [updatedata, setUpdateData] = useState([]);
+  const [showdata, setShowData]=useState([]);
+  const [filter, setFilter]=useState([]);
+  const [updatedata, setUpdateData]=useState([]);
   const [name_space, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile_no, setMobileNo] = useState("");
   const [space_type, setSpaceType] = useState("");
   const [persons, setPersons] = useState("");
   const [property_id, setPropertyId] = useState("");
-  let { id, name } = useParams();
-  const [cityname, setCityName] = useState(name);
+  let { id, name, spacename, spaceid } = useParams();
+  const [cityname, setCityName]=useState(name);
+  const defaultImag = "/assest/silder5.jpg";
 
-  console.log(name_space);
+
 
   const handlerPerson = (e) => {
     setPersons(e);
@@ -95,14 +96,13 @@ const Index = (props) => {
     setMobileNo(value);
   };
 
+  
   useEffect(() => {
     setCityName(name);
-  }, [name]);
-
+  }, [name])
+  
   useEffect(() => {
-    fetch(
-      `https://cozone.divashudh.com/api/get_cities_properties_spaces/${id}/2`
-    )
+    fetch(`https://cozone.divashudh.com/api/get_spaceby_space_type/${spaceid}/${id}`)
       .then((res) => res.json())
       .then((res) => {
         setData(res.data);
@@ -113,19 +113,16 @@ const Index = (props) => {
         const arr = imges.split(",");
         setImg(arr);
       });
-  }, [id]);
+  }, [spaceid, id]);
 
-  const defaultImag = "/assest/silder5.jpg";
-  const filterHandler = (e) => {
-    const filterData = (data.length > 1 ? data : updatedata).filter(
-      (filterID) => {
-        return filterID.id == e.id;
-      }
-    );
-
+  const filterHandler = (e) =>{
+    const filterData = (data.length > 1 ? data : updatedata).filter( filterID=> {
+      console.log(filterID.id, e.id);
+      return filterID.id == e.id
+    });
     setData(filterData);
     setCityName(e.address);
-  };
+  }
 
   const enquire = async () => {
     await fetch("https://cozone.divashudh.com/api/save_enquiry", {
@@ -193,6 +190,7 @@ const Index = (props) => {
       });
   };
 
+
   var settings = {
     defaultArrows: false,
     dots: false,
@@ -245,38 +243,35 @@ const Index = (props) => {
     ],
   };
 
+
   return (
-    <>
-      <section>
+    <div>
+   <section>
         <HeaderPage />
         <hr />
         <div className="container p-2">
           <div className="row d-flex flex-row justify-content-between">
             <div className="col-12 col-md-10 col-sm-12 col-xl-12 ms-3 ms-xl-0 ms-lg-0 ms-md-0 ms-sm-0">
-              <h1 className="col-sm-12 col-12 col-sm-12 col-xl-12 page-heading">
-                Coliving Spaces in {cityname && cityname}
-              </h1>
+              <h1 className="col-sm-12 col-12 col-sm-12 col-xl-12 page-heading">{spacename} in {cityname && cityname}</h1>
             </div>
           </div>
-          <div
-            className="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-11 d-flex flex-row ms-3 ms-xl-0 ms-lg-0 ms-md-0 ms-sm-0"
-            style={{ overflowX: "scroll", overflowY: "hidden" }}
+          <div className="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-11 d-flex flex-row ms-3 ms-xl-0 ms-lg-0 ms-md-0 ms-sm-0"
+            style={{overflowX:'scroll', overflowY:'hidden'}}
           >
-            {filter.map((e) => {
-              return (
-                <div
-                  className="col-auto col-md-auto col-sm-3 col-lg-auto col-xl-auto filter-btn mb-2"
-                  key={e.id}
-                  onClick={() => {
-                    filterHandler(e);
-                  }}
-                >
-                  <Link to={"#"} className="text-decoration-none p-3 link-btn">
+           
+          {         
+              filter.map((e)=>{
+                return(                  
+                  <div className="col-auto col-md-auto col-sm-3 col-lg-auto col-xl-auto filter-btn mb-2" key={e.id}
+                    onClick={()=>{filterHandler(e)}}
+                  >
+                  <Link to={'#'} className="text-decoration-none p-3 link-btn">
                     {e.address}
                   </Link>
-                </div>
-              );
-            })}
+                  </div>
+                )
+              })
+            }
           </div>
           {/* <hr /> */}
         </div>
@@ -285,104 +280,83 @@ const Index = (props) => {
       <section>
         <div className="container" style={{ marginTop: "-30px" }}>
           <div className="row d-flex flex-row justify-content-between">
-            {data && data.length > 0 ? (
-              data.map((e) => {
-                return (
-                  <div
-                    className="col-8 col-md-4 col-lg-4 col-sm-10 col-xl-12 mt-4 card-inner rounded-2 shadow"
-                    style={{
-                      backgroundColor: "white",
-                      border: "1px solid #d7d7d9",
-                    }}
-                    key={e.city_id}
-                  >
-                    <Slider
-                      {...settings}
-                      className="col-xl-12"
-                      style={{ width: "100%" }}
-                    >
-                      {img.map((item) => {
-                        return (
-                          <div className="">
-                            <Link
-                              to={
-                                "/coliving/colivingDom/" + e.id + "/" + e.name
-                              }
+
+            {data && data.length > 0 ? data.map((e) => {
+              return (
+                <div
+                  className="col-8 col-md-4 col-lg-4 col-sm-10 col-xl-12 mt-4 card-inner rounded-2 shadow"
+                  style={{ backgroundColor: "white", border:'1px solid #d7d7d9'}}
+                  key={e.city_id}
+                >
+                  <Slider {...settings} className="col-xl-12" style={{width:'100%'}}>
+                    {img.map((item) => {
+                      return (  
+                        <div className="">
+                          <Link
+                              to={"/space/"+e.id+"/"+e.name}
                             >
-                              <img
-                                src={item ? item : defaultImag}
-                                alt=""
-                                className="img-fluid rounded-top img-card"
-                              />
-                            </Link>
-                          </div>
-                        );
-                      })}
-                    </Slider>
-                    <Link
-                      to={"/coliving/colivingDom/" + e.id + "/" + e.name}
-                      className="pe-auto text-decoration-none text-dark"
-                    >
-                      <div className="col-12 col-md-6 col-xl-12 col-lg-12 col-sm-12 mt-3">
-                        <h5 className="adress-card">{e.name}</h5>
-                      </div>
-                      <div className="col-12 col-md-12 col-lg-12 col-sm-12 mt-3">
-                        <p style={{ color: "gray" }}>
-                          <FontAwesomeIcon icon={faLocationDot} color="gray" />{" "}
-                          {e.address},{e.area}, {e.city_name}
-                        </p>
-                        <p style={{ color: "gray" }}>
-                          <FontAwesomeIcon
-                            icon={faChildReaching}
-                            color="gray"
-                          />{" "}
-                          Seating Capacity : {e.seat_capacity}
-                        </p>
-                        <hr style={{ width: "40%" }} />
-                      </div>
-                      <div className="col-12 col-md-6 col-lg-12 col-sm-6">
-                        <p style={{ color: "gray" }}>Starting from</p>
-                      </div>
-                      <div
-                        className="row d-flex flex-row justify-content-between"
-                        style={{ marginTop: "-20px" }}
-                      >
-                        <div className="col-6 col-md-6 col-sm-6">
-                          <h5 className="mt-1">
-                            {e.starting_price}
-                            <spna style={{ color: "gray", fontSize: "15px" }}>
-                              /month
-                            </spna>
-                          </h5>
-                        </div>
-                        <div className="col-6 col-md-6 col-sm-6">
-                          <p className="text-end mt-2">
-                            Explore Now{" "}
-                            <FontAwesomeIcon
-                              icon={faAngleRight}
-                              color="gray"
-                              className=" fa-xs"
+                            <img
+                              src={item? item: defaultImag}
+                              alt=""
+                              className="img-fluid rounded-top img-card"
                             />
-                          </p>
+                          </Link>
                         </div>
+                      );
+                    })}
+                  </Slider>
+                  <Link
+                   to={"/space/"+e.id+"/"+e.name}
+                    className="pe-auto text-decoration-none text-dark"
+                   >
+                    <div className="col-12 col-md-6 col-xl-12 col-lg-12 col-sm-12 mt-3">
+                      <h5 className="adress-card">{e.name}</h5>
+                    </div>
+                    <div className="col-12 col-md-12 col-lg-12 col-sm-12 mt-3">
+                      <p style={{color:"gray"}}>
+                        <FontAwesomeIcon icon={faLocationDot} color="gray" />{" "}
+                        {e.address},
+                        {e.area}, {e.city_name}
+                      </p>
+                      <p style={{color:"gray"}}>
+                        <FontAwesomeIcon icon={faChildReaching} color="gray" />{" "}
+                        Seating Capacity : {e.seat_capacity}
+                      </p>
+                      <hr style={{ width: "40%" }} />
+                    </div>
+                    <div className="col-12 col-md-6 col-lg-12 col-sm-6">
+                      <p style={{color:"gray"}}>Starting from</p>
+                    </div>
+                    <div className="row d-flex flex-row justify-content-between" style={{marginTop:'-20px'}}>
+                      <div className="col-6 col-md-6 col-sm-6">
+                        <h5 className="mt-1">{e.starting_price}<spna style={{color:"gray",fontSize:'15px'}}>/month</spna></h5>
                       </div>
-                    </Link>
-                  </div>
-                );
-              })
-            ) : (
+                      <div className="col-6 col-md-6 col-sm-6">
+                        <p className="text-end mt-2">
+                          Explore Now{" "}
+                          <FontAwesomeIcon
+                            icon={faAngleRight}
+                            color="gray"
+                            className=" fa-xs"
+                          />
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              );
+            }):(
               <div
-                className="col-12 col-md-12 col-lg-12 col-sm-12 col-xl-12  mt-5"
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.322)" }}
-              >
-                <h3 className="text-center" style={{ color: "gray" }}>
-                  Data Not Found !!
-                </h3>
-              </div>
+              className="col-12 col-md-12 col-lg-12 col-sm-12 col-xl-12  mt-5"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.322)" }}
+            >
+              <h3 className="text-center" style={{color:'gray'}}>Data Not Found !!</h3>
+            </div>
             )}
           </div>
         </div>
       </section>
+
 
       <section className="mt-5">
         <div className="container">
@@ -462,7 +436,7 @@ const Index = (props) => {
                               </div>
                             </div>
                           </div>
-                          <div class="row mb-4">
+                            <div class="row mb-4">
                             <div class="col">
                               <div class="form-outline">
                                 <div class="dropdown">
@@ -472,21 +446,16 @@ const Index = (props) => {
                                     id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
-                                    style={{
-                                      width: "100%",
-                                      backgroundColor: "white",
-                                      color: "gray",
-                                      border: "1px solid #c4c4c2",
-                                    }}
+                                    style={{width:'100%', backgroundColor:'white', color:'gray', border:'1px solid #c4c4c2'}}
                                   >
-                                    {space_type ? space_type : "type"}
+                                   Type
                                   </button>
                                   <ul
                                     class="dropdown-menu"
                                     aria-labelledby="dropdownMenuButton1"
-                                    style={{ width: "100%" }}
+                                    style={{width:'100%'}}
                                   >
-                                    {data.map((e) => {
+                                     {data.map((e) => {
                                       return (
                                         <li
                                           onClick={() => {
@@ -513,32 +482,28 @@ const Index = (props) => {
                                     id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
-                                    style={{
-                                      width: "100%",
-                                      backgroundColor: "white",
-                                      color: "gray",
-                                      border: "1px solid #c4c4c2",
-                                    }}
+                                    style={{width:'100%', backgroundColor:'white', color:'gray', border:'1px solid #c4c4c2'}}
+
                                   >
-                                    {persons ? persons : "Person"}
+                                     {persons ? persons : "Person"}
                                   </button>
                                   <ul
                                     class="dropdown-menu"
                                     aria-labelledby="dropdownMenuButton1"
-                                    style={{ width: "100%" }}
+                                    style={{width:'100%'}}
                                   >
                                     <li onClick={() => handlerPerson(10)}>
-                                      <Link class="dropdown-item" to={"#"}>
+                                      <Link class="dropdown-item" to={'#'}>
                                         1-10
                                       </Link>
                                     </li>
                                     <li onClick={() => handlerPerson(20)}>
-                                      <Link class="dropdown-item" to={"#"}>
+                                      <Link class="dropdown-item" to={'#'}>
                                         20-30
                                       </Link>
                                     </li>
                                     <li onClick={() => handlerPerson(30)}>
-                                      <Link class="dropdown-item" to={"#"}>
+                                      <Link class="dropdown-item" to={'#'}>
                                         30-40
                                       </Link>
                                     </li>
@@ -547,6 +512,7 @@ const Index = (props) => {
                               </div>
                             </div>
                           </div>
+
 
                           <div
                             type="submit"
@@ -565,7 +531,7 @@ const Index = (props) => {
           </div>
         </div>
       </section>
-
+   
       <section className="mt-5">
         <div className="container">
           <div className="row">
@@ -588,8 +554,8 @@ const Index = (props) => {
       <section>
         <Footer />
       </section>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default Index;
+export default Index

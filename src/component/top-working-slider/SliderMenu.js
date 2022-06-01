@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function SampleNextArrow(props) {
   const { className, onClick } = props;
   return (
-    <div className={className} onClick={onClick} style={{ marginLeft: "50px" }}>
+    <div className={className} onClick={onClick} style={{ marginLeft: "30px" }}>
       <img src="/assest/Vector (2).png" alt="arrow_left" />
     </div>
   );
@@ -17,7 +17,7 @@ function SampleNextArrow(props) {
 function SamplePrevArrow(props) {
   const { className, onClick } = props;
   return (
-    <div className={className} onClick={onClick} style={{ marginLeft: "50px" }}>
+    <div className={className} onClick={onClick} style={{ marginLeft: "20px" }}>
       <img src="/assest/Vector (1).png" alt="arrow_left" />
     </div>
   );
@@ -140,16 +140,16 @@ const SliderMenu = () => {
               <Slider {...settings}>
                 {slider.map((e) => {
                   return (
-                    <div key={e.id}>
+                    <div key={e.id} className="main-silder-div">
                       <Link
                         className="text-decoration-none"
                         to={'/coworking/city/'+ e.id+"/"+e.location}
-                      //  key={e.id}
                       >
                         <img
-                           src={e.image ? defaultImg : e.image }
+                           src={e.image ? e.image : defaultImg}
                           alt=""
-                          className="img-fluid slider-img"
+                          className="slider-img"
+                          
                         />
                         <h3 className="text-center text-white">{e.location}</h3>
                       </Link>

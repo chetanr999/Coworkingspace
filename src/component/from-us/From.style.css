@@ -23,6 +23,19 @@
     margin-top: 30px;
 }
 
+@media(max-width:1440px){
+    .vector-img{
+        margin-left: 25rem !important;
+        margin-top: -4rem !important;
+    }
+}
+@media(max-width:1024px){
+    .vector-img{
+        margin-left: 23rem !important;
+        margin-top: -4rem !important;
+    }
+}
+
 @media(max-width:768px){
     .ellipse-background-img{
         margin-top: -3px;
@@ -36,6 +49,10 @@
         margin-left: -7px;
         font-size: 2rem !important;
     }
+    .vector-img{
+        margin-left: 24rem !important;
+        margin-top: -4rem !important;
+    }
 }
 
 @media(max-width:425px){
@@ -47,6 +64,10 @@
     .ellipse-circle-img{
         width: 110px;
         height: 5rem;
+    }
+    .vector-img{
+        margin-left: 9rem !important;
+        margin-top: -1rem !important;
     }
   
 }

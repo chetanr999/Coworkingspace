@@ -146,7 +146,7 @@ function PosterPage() {
                         aria-labelledby="dropdownMenuLink"
                         style={{ width: "90%" }}
                       >
-                        {city.map((e) => {
+                        {city.length > 0 ? city.map((e) => {
                           return (
                             <li>
                               <Link
@@ -168,7 +168,11 @@ function PosterPage() {
                               </Link>
                             </li>
                           );
-                        })}
+                        }):
+                        (
+                          <p className="text-center mb-0 text-black-50">Select Looking for</p>
+                        )
+                      }
                       </ul>
                     </div>
                   </div>

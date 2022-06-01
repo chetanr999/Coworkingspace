@@ -46,7 +46,7 @@ function LiveSpaces() {
               </div>
               <div className="row d-flex flex-row">
                 <div className="col-lg-6 mt-5 ms-lg-2 mobile-location">
-                    <h1 className="text-white fw-bold">700+</h1>
+                    <h1 className="text-white fw-bold ms-4">700+</h1>
                     <h4 className="fw-bold">Locations</h4>
                 </div>
                 <div className="col-lg-4">
@@ -59,7 +59,7 @@ function LiveSpaces() {
               </div>
               <div className="row d-flex flex-row">
                 <div className="col-lg-3 mt-5 ms-lg-5 cities-div">
-                    <h1 className="text-white fw-bold">18</h1>
+                    <h1 className="text-white fw-bold ms-3">18</h1>
                     <h4 className="fw-bold">Cities</h4>
                 </div>
                 <div className="col-lg-5 col-md-3 col-sm-2 last-dots">

@@ -97,6 +97,19 @@
  max-height: 200px;
 }
 
+/* @media(max-width:2560px){
+  .ellipse-image {
+    margin-top: 0rem !important;
+    margin-left: -33rem !important;
+    width: 50%;
+  }
+  .circle-image {
+    margin-top: -1rem;
+    margin-left: 6rem;
+    width: 37%;
+  }
+} */
+
 @media(max-width:1024px){
   .img-cover {
     height: 35rem !important;
@@ -185,4 +198,13 @@
     margin-right: 0px !important;
     width: 8rem;
   }
+  .dot-img {
+    position: absolute;
+    right: 0rem;
+    top: 4rem;
+    width: 100px;
+    height: 20rem;
+    display: none;
+  }
+
 }

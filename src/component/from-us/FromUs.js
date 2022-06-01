@@ -7,7 +7,7 @@ const FromUs = () => {
       <section>
         <div className="container-fluid">
           <div className="row mt-5">
-            <div className="col-6 col-md-6">
+            <div className="col-8 col-md-8 col-xl-5 col-lg-6">
               <div className="d-flex flex-row justify-content-center">
                 <img
                   src="/assest/Ellipse.png"
@@ -18,11 +18,11 @@ const FromUs = () => {
                   What You Get From Us
                 </h1>
               </div>
-              <div className="d-flex justify-content-center">
-                <img src="/assest/Vector 2.png" alt="" className="img-fluid" />
+              <div className="">
+                <img src="/assest/Vector 2.png" alt="" className="vector-img" />
               </div>
             </div>
-            <div className="col-6 col-md-6">
+            <div className="col-4 col-md-4 col-xl-7 col-lg-6">
               <div className="d-flex justify-content-center">
                 <img
                   src="/assest/Polygon 2.png"

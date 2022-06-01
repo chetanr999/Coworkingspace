@@ -24,7 +24,7 @@ const Partners = () => {
                 <img
                   src="/assest/Vector 2.png"
                   alt=""
-                  className="img-fluid float-end"
+                  className="img-fluid x-larger"
                 />
               </div>
             </div>
@@ -101,7 +101,7 @@ const Partners = () => {
           </div>
           <div className="container mt-5">
             <div className="row">
-              <div className="col-lg-4 col-md-5 d-flex flex-column">
+              <div className="col-lg-4 col-md-5 col-9 flex-end d-flex flex-column">
                 <div className="d-flex flex-row">
                   <img
                     src="/assest/Ellipse 37.png"
@@ -115,7 +115,7 @@ const Partners = () => {
                 <div>
                   <img
                     src="/assest/Vector 3.png"
-                    className="float-end mobile-view"
+                    className="web-lg"
                     alt=""
                   />
                 </div>

@@ -19,9 +19,9 @@ const Footer = () => {
           <div className="row first-footer-row">
             <div className="col-lg-2 d-flex justify-content-lg-center">
               <img
-                src="/assest/Group (12).png"
+               src="/assest/cozonlogo.png"
                 alt=""
-                className="footer-log-img p-4"
+                className="footer-log-img"
               />
             </div>
             <div className="col-lg-8 d-flex flex-column justify-content-lg-center">

@@ -3,7 +3,7 @@ import HeaderPage from "../header/HeaderPage";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
@@ -17,6 +17,51 @@ import Footer from "../footer/Footer";
 // import {URL} from '../api/api'
 import Swal from "sweetalert2";
 import "./CoWorkingDom.style.css";
+
+function Next(props) {
+  const { className, onClick } = props;
+  return (
+    <div
+      className={className}
+      onClick={onClick}
+      style={{
+        marginRight: "40px",
+        backgroundColor: "rgba(255, 255, 255, 0.2)",
+        borderRadius: "50%",
+        padding: "18px",
+      }}
+    >
+      <img
+        src="/assest/Vector (2).png"
+        alt="arrow_left"
+        style={{ marginTop: "-28px", marginLeft: "-3px" }}
+      />
+    </div>
+  );
+}
+
+function Prev(props) {
+  const { className, onClick } = props;
+  return (
+    <div
+      className={className}
+      onClick={onClick}
+      style={{
+        marginLeft: "40px",
+        zIndex: "1",
+        backgroundColor: "rgba(255, 255, 255, 0.2)",
+        borderRadius: "50%",
+        padding: "18px",
+      }}
+    >
+      <img
+        src="/assest/Vector (1).png"
+        alt="arrow_left"
+        style={{ marginTop: "-28px", marginLeft: "-8px" }}
+      />
+    </div>
+  );
+}
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -130,10 +175,14 @@ const CoWorkingDom = () => {
   const [property_id, setPropertyId] = useState("");
   const [review, setReview] = useState("");
   const EnquireSection = useRef(null);
-  const RevireSection =useRef(null);
-
+  const RevireSection = useRef(null);
   let { id } = useParams();
 
+  const user_id = 2;
+  const defImg = "/assest/office1.png";
+  const image = "/assest/image 1.png";
+  const defaultImag = "/assest/silder5.jpg";
+  const DefautImg = "/assest/silder1.jpg";
 
   const gotoEnquireSection = () => {
     window.scrollTo({
@@ -147,14 +196,24 @@ const CoWorkingDom = () => {
       behavior: "smooth",
     });
   };
-  
 
- 
+  const nameHandler = (e) => {
+    // const name= e.target.name;
+    const value = e.target.value;
+    setName(value);
+  };
+  const emaiHandler = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+  };
+  const mobileHandler = (e) => {
+    const value = e.target.value;
+    setMobileNo(value);
+  };
+
   const handlerPerson = (e) => {
     setPersons(e);
   };
-
-  const user_id = 2;
 
   useEffect(() => {
     fetch(`https://cozone.divashudh.com/api/get_similar_property/${cityid}`)
@@ -162,7 +221,7 @@ const CoWorkingDom = () => {
       .then((res) => {
         setSlider(res.data);
       });
-  },[cityid]);
+  }, [cityid]);
 
   useEffect(() => {
     fetch(`https://cozone.divashudh.com/api/get_property_details/${id}`)
@@ -183,9 +242,6 @@ const CoWorkingDom = () => {
       });
   }, [id]);
 
-  const defImg = "/assest/office1.png";
-  const image = "/assest/image 1.png";
-
   useEffect(() => {
     fetch("https://cozone.divashudh.com/api/get_add_spaces")
       .then((res) => res.json())
@@ -196,7 +252,124 @@ const CoWorkingDom = () => {
       });
   }, []);
 
-  const defaultImag = "/assest/silder5.jpg";
+  const reviewHandler = async () => {
+    if (review && user_id && property_id) {
+      await fetch("https://cozone.divashudh.com/api/save_review", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          review: review,
+          user_id: user_id,
+          property_id: property_id,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+
+          Toast.fire({
+            icon: "success",
+            title: "Add review in successfully",
+          });
+          window.location.reload(true);
+        });
+    } else {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+
+      Toast.fire({
+        icon: "warning",
+        title: "Fill All Data !!",
+      });
+    }
+  };
+
+  const enquire = async () => {
+    await fetch("https://cozone.divashudh.com/api/save_enquiry", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        mobile_no: mobile_no,
+        space_type: space_type,
+        persons: persons,
+        property_id: property_id,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.code === 200) {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+
+          Toast.fire({
+            icon: "success",
+            title: `${data.message}`,
+          });
+          setMobileNo("");
+          setEmail("");
+          setName("");
+          setSpaceType("");
+          setPersons("");
+        } else {
+          const error = data.message[0];
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+
+          Toast.fire({
+            icon: "warning",
+            title: `${error}`,
+          });
+        }
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
   var setting = {
     defaultArrows: false,
@@ -293,129 +466,48 @@ const CoWorkingDom = () => {
       },
     ],
   };
-
-  const reviewHandler = async () => {
-    if (review && user_id && property_id) {
-      await fetch("https://cozone.divashudh.com/api/save_review", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json",
+  var PosterSetting = {
+    defaultArrows: false,
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    nextArrow: <Next />,
+    prevArrow: <Prev />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
         },
-        body: JSON.stringify({
-          review: review,
-          user_id: user_id,
-          property_id: property_id,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener("mouseenter", Swal.stopTimer);
-              toast.addEventListener("mouseleave", Swal.resumeTimer);
-            },
-          });
-
-          Toast.fire({
-            icon: "success",
-            title: "Add review in successfully",
-          });
-          setReview("");
-        });
-    } else {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener("mouseenter", Swal.stopTimer);
-          toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
-      });
-
-      Toast.fire({
-        icon: "warning",
-        title: "Fill All Data !!",
-      });
-    }
-  };
-
-  const enquire = async () => {
-    if (
-      name != "" &&
-      email != "" &&
-      mobile_no != "" &&
-      space_type != "" &&
-      persons != "" &&
-      property_id != ""
-    ) {
-      await fetch("https://cozone.divashudh.com/api/save_enquiry", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json",
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          mobile_no: mobile_no,
-          space_type: space_type,
-          persons: persons,
-          property_id: property_id,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.code === 200) {
-            const Toast = Swal.mixin({
-              toast: true,
-              position: "top-end",
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener("mouseenter", Swal.stopTimer);
-                toast.addEventListener("mouseleave", Swal.resumeTimer);
-              },
-            });
-
-            Toast.fire({
-              icon: "success",
-              title: "Enquiry Submitted successfully",
-            });
-            setName("");
-            setEmail("");
-            setMobileNo("");
-            setPersons("");
-            setPropertyId("");
-          }
-        });
-    } else {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener("mouseenter", Swal.stopTimer);
-          toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+      {
+        breakpoint: 425,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
-      });
-
-      Toast.fire({
-        icon: "warning",
-        title: "Fill All Data !!",
-      });
-    }
+      },
+    ],
   };
 
   return (
@@ -425,7 +517,7 @@ const CoWorkingDom = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 col-md-12 col-lg-12">
-              <Slider {...settings}>
+              <Slider {...PosterSetting}>
                 {img.map((e) => {
                   return (
                     <div key={e.id}>
@@ -433,7 +525,7 @@ const CoWorkingDom = () => {
                         <img
                           src={e ? e : defaultImag}
                           alt=""
-                          className="img-fluid w-100 d-block"
+                          className="img-fluid w-100 d-block img-hover"
                           style={{ height: "85vh" }}
                         />
                       </Link>
@@ -453,7 +545,11 @@ const CoWorkingDom = () => {
               <div className="column">
                 <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xl-12 d-flex flex-row">
                   <div>
-                    <img src="/assest/Ellipse 40.png" alt="" />
+                    <img
+                      src="/assest/Ellipse 40.png"
+                      alt=""
+                      className="ellipse-circle-div"
+                    />
                   </div>
                   <div
                     className="col-lg-12 col-12 d-flex flex-row justify-content-evenly"
@@ -465,12 +561,12 @@ const CoWorkingDom = () => {
                     <div className="col-lg-4 col-md-4 col-xl-2  col-sm-4 col-4 align-self-lg-center">
                       <button
                         type="button"
-                        class="btn btn-primary"
+                        class="Review-btn"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
                         ref={RevireSection}
                       >
-                        Review
+                        Write a review
                       </button>
 
                       <div
@@ -529,7 +625,7 @@ const CoWorkingDom = () => {
                   </div>
                 </div>
                 <div className="col-md-12 col-12 col-lg-12">
-                  <p className="fs-5 ms-2">
+                  <p className="fs-5 ms-2" style={{ color: "gray" }}>
                     <FontAwesomeIcon icon={faLocationDot} color="gray" />{" "}
                     {address}, {area}
                   </p>
@@ -546,17 +642,19 @@ const CoWorkingDom = () => {
                   />
                 </div>
                 <div className="col-12 col-md-12 col-lg-12 col-sm-12 mt-5">
-                  <p>{about}</p>
+                  <p className="mb-5" style={{ color: "gray" }}>
+                    {about}
+                  </p>
                 </div>
-                <div className="row d-flex flex-row mt-5">
+                <div className="row d-flex flex-row mt-5 mb-5">
                   <div className="col-10 col-md-6 col-lg-6 col-sm-12">
-                    <p>
+                    <p style={{ color: "gray" }}>
                       Mon - Fri : {open} to {close} PM
                     </p>
-                    <p>
+                    <p style={{ color: "gray" }}>
                       Sat : {open} AM to {close}
                     </p>
-                    <p>PM Sun : Closed</p>
+                    <p style={{ color: "gray" }}>PM Sun : Closed</p>
                   </div>
                   <div className="col-2 col-md-4 col-lg-4 d-flex justify-content-center align-self-center">
                     <img
@@ -567,7 +665,7 @@ const CoWorkingDom = () => {
                     />
                   </div>
                 </div>
-                <div className="col-12 col-md-12 col-lg-8 mt-2">
+                <div className="col-12 col-md-12 col-lg-8 memebership mt-5">
                   <p className="fw-bold fs-2">Membership Plans</p>
                 </div>
                 <div className="col-7 col-md-9 col-lg-4">
@@ -582,50 +680,23 @@ const CoWorkingDom = () => {
             <div className="col-12 col-md-6 col-lg-4 col-sm-6 d-flex mt-3">
               <div className="column">
                 <div className="row d-flex flex-wrap ms-lg-2">
-                  <div className="col-12 col-md-6 col-lg-5 col-sm-12 col-xl-6 mb-sm-2 mb-3">
-                    <img
-                      src="/assest/silder1.jpg"
-                      alt=""
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: "10%",
-                      }}
-                    />
-                  </div>
-                  <div className="col-12 col-md-6 col-lg-5 col-xl-6 col-sm-12">
-                    <img
-                      src="/assest/silder1.jpg"
-                      alt=""
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: "10%",
-                      }}
-                    />
-                  </div>
-                  <div className="col-12 col-md-6 col-lg-5 col-xl-6 col-sm-12 mt-3">
-                    <img
-                      src="/assest/silder1.jpg"
-                      alt=""
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: "10%",
-                      }}
-                    />
-                  </div>
-                  <div className="col-12 col-md-6 col-lg-5 col-xl-6 col-sm-12 mt-3">
-                    <img
-                      src="/assest/silder1.jpg"
-                      alt=""
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: "10%",
-                      }}
-                    />
-                  </div>
+                  {img.slice(0,4).map((e) => {
+                    return (
+                      <div className="col-12 col-md-6 col-lg-5 col-sm-12 col-xl-6 mb-sm-2 mb-3">
+                        <img
+                          src={e ? e : DefautImg}
+                          alt=""
+                          className="img-hover"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: "10%",
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
+                
                 </div>
 
                 <div
@@ -650,10 +721,10 @@ const CoWorkingDom = () => {
                       <input
                         placeholder="Full Name"
                         className="border-0 ms-4 w-75"
-                        name="firstName"
-                        onChange={(event) => {
-                          setName(event.target.value);
-                        }}
+                        name="name"
+                        type="text"
+                        value={name}
+                        onChange={nameHandler}
                       />
                       <hr />
                     </div>
@@ -662,9 +733,9 @@ const CoWorkingDom = () => {
                         placeholder="Email Id"
                         className="border-0 ms-4 w-75"
                         name="email"
-                        onChange={(event) => {
-                          setEmail(event.target.value);
-                        }}
+                        type="email"
+                        value={email}
+                        onChange={emaiHandler}
                       />
                       <hr />
                     </div>
@@ -673,9 +744,10 @@ const CoWorkingDom = () => {
                         placeholder="Mobile Number"
                         className="border-0 ms-4 w-75"
                         name="mobile"
-                        onChange={(event) => {
-                          setMobileNo(event.target.value);
-                        }}
+                        type="number"
+                        maxLength={12}
+                        value={mobile_no}
+                        onChange={mobileHandler}
                       />
                       <hr />
                     </div>
@@ -712,7 +784,7 @@ const CoWorkingDom = () => {
                               );
                             })}
                           </ul>
-                          <hr className="ms-lg-3 ms-md-3" />
+                          {/* <hr className="ms-lg-3 ms-md-3" /> */}
                         </div>
                       </div>
                       <div className="col-md-6 col-lg-6 col-sm-12 col-6">
@@ -753,20 +825,20 @@ const CoWorkingDom = () => {
                             </li>
                           </ul>
                         </div>
-                        <hr />
+                        {/* <hr /> */}
                       </div>
                     </div>
 
-                    <div className="col-lg-6 col-6 ms-3" style={{cursor:'pointer'}}>
-                      <Link to={"#"}>
-                        <p
-                          className="text-white fs-5 text-center col-lg-12 col-md-12 col-sm-12 col-12 bg-primary rounded w- ms-lg-4 ms-md-4 ms-sm-5"
-                          onClick={enquire}
-                        >
+                    <Link to={"#"} className="text-decoration-none">
+                      <div
+                        className="col-lg-12 col-12 btn-submit"
+                        onClick={enquire}
+                      >
+                        <h4 className="text-center align-middle text-white">
                           Submit
-                        </p>
-                      </Link>
-                    </div>
+                        </h4>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -781,32 +853,38 @@ const CoWorkingDom = () => {
             {plan.map((e) => {
               return (
                 <div
-                  className="col-md-11 col-lg-11 col-11 ms-3 ms-md-2 mb-4 shadow border-3 rounded-3"
+                  className="col-md-11 col-lg-11 col-11 col-xl-11 ms-3 ms-md-2 mb-4 card-shadws"
                   key={e.id}
                 >
                   <div className="row d-flex flex-row">
-                    <div className="col-md-1 col-3 align-self-center">
+                    <div className="col-md-1 col-3 col-xl-1 align-self-center">
                       <img
                         src={e.icon ? e.icon : image}
                         alt=""
                         style={{ width: "70%" }}
                       />
                     </div>
-                    <div className="col-md-8 col-lg-8 d-flex flex-column align-self-center">
+                    <div className="col-md-8 col-lg-8 col-xl-7 d-flex flex-column align-self-center">
                       <div>
-                        <h2>{e.plan_name}</h2>
+                        <h5>{e.plan_name}</h5>
                       </div>
-                      <div>{e.description}</div>
+                      <div style={{ color: "gray" }}>{e.description}</div>
                     </div>
-                    <div className="col-md-3 col-lg-3">
-                      <div className="">
+                    <div className="col-md-3 col-lg-3 col-xl-3 d-flex flex-wrap align-items-center justify-content-xl-start align-content-xl-around flex-column ">
+                      <div>
                         <p>{e.start}</p>
                       </div>
-                      <div className="">
-                        <h5>{e.plan_duration}</h5>
+                      <div className="d-flex flex-row">
+                        <h5>{e.price}</h5>/<spsan>{e.plan_duration}</spsan>
                       </div>
-                      <div className="col-lg-4 rounded rounded-3 bg-warning" style={{cursor:'pointer'}}>
-                        <p className="text-center" onClick={gotoEnquireSection}>
+                      <div
+                        className="col-lg-4 col-xl-4"
+                        style={{ cursor: "pointer" }}
+                      >
+                        <p
+                          className="text-center rounded rounded-3 bg-warning"
+                          onClick={gotoEnquireSection}
+                        >
                           Enquire
                           <FontAwesomeIcon
                             icon={faAngleDoubleRight}
@@ -825,9 +903,9 @@ const CoWorkingDom = () => {
       </section>
 
       <section>
-        <div className="container-fluid">
-          <div className="row ms-5">
-            <div className="col-10 col-md-12 col-lg-5 col-sm-12 mt-4 p-3 ms-lg-5 d-flex flex-row">
+        <div className="container">
+          <div className="row">
+            <div className="col-10 col-md-12 col-lg-5 col-sm-12 col-xl-5 mt-4 p-3 ms-lg-2  d-flex flex-row xl-size">
               <div className="">
                 <img src="/assest/Ellipse 40.png" alt="" />
               </div>
@@ -851,19 +929,22 @@ const CoWorkingDom = () => {
             {sercard.map((e) => {
               return (
                 <div
-                  className="col-md-11 col-lg-11 col-sm-12 col-11 col-xl-11 ms-3 ms-md-2 shadow mt-5 rounded-3"
+                  className="col-md-11 col-lg-11 col-sm-12 col-11 col-xl-11 ms-3 ms-md-2 card-shadws mt-5"
                   key={e.id}
                 >
                   <div className="row d-flex flex-row mt-3">
-                    <div className="col-md-9 col-lg-8 col-sm-9 col-12 col-xl-8 align-self-center ms-4">
+                    <div className="col-md-8 col-lg-8 col-sm-9 col-12 col-xl-8 align-self-center ms-4">
                       <div className="">
                         <h2>{e.plan_name}</h2>
                       </div>
                       <div>
-                        <p>{e.description}</p>
+                        <p style={{ color: "gray" }}>{e.description}</p>
                       </div>
                     </div>
-                    <div className="col-md-2 align-self-center col-sm-3 col-12 col-xl-2 col-lg-2" style={{cursor:'pointer'}}>
+                    <div
+                      className="col-md-3 align-self-center col-sm-3 col-12 col-xl-2 col-lg-3"
+                      style={{ cursor: "pointer" }}
+                    >
                       <p
                         className="text-center w-50 bg-warning rounded-3  float-end me-xl-2"
                         onClick={gotoEnquireSection}
@@ -887,11 +968,11 @@ const CoWorkingDom = () => {
       <section>
         <div className="container mt-5">
           <div className="row">
-            <div className="col-md-5">
-              <div className="col-md-6 ms-md-5">
-                <h2>Amenities</h2>
+            <div className="col-md-5 ms-5">
+              <div className="col-12 col-md-6 ms-md-5">
+                <h2 className="amenities">Amenities</h2>
               </div>
-              <div className="col-4 col-md-6">
+              <div className="col-4 col-md-6 col-xl-4">
                 <img src="/assest/Vector 5.png" className="float-end" alt="" />
               </div>
             </div>
@@ -907,9 +988,7 @@ const CoWorkingDom = () => {
           </div>
         </div>
         <div className="container">
-          <div
-            className="row mt-4 d-flex flex-row justify-content-between shadow col-10 ms-4 col-xl-11 ms-xl-0 col-lg-11 ms-lg-0"
-          >
+          <div className="row mt-4 d-flex flex-row justify-content-between card-shadws col-10 ms-4 col-xl-11 ms-xl-0 col-lg-11 ms-lg-0">
             {amenties.map((e) => {
               return (
                 <div
@@ -932,8 +1011,8 @@ const CoWorkingDom = () => {
       <section>
         <div className="container">
           <div className="row mt-5">
-            <div className="col-md-7 col-lg-5 p-5 col-12">
-              <div className="d-flex flex-row">
+            <div className="col-md-7 col-lg-5  col-xl-6 p-5 col-12 ">
+              <div className="d-flex flex-row ellipse-div">
                 <div className="">
                   <img src="/assest/Ellipse 40.png" alt="" />
                 </div>
@@ -942,14 +1021,20 @@ const CoWorkingDom = () => {
                     You'll work here
                   </h4>
                 </div>
-                <div className="col-12">
-                  <img src="/assest/Vector 5.png" className="mt-5" alt="" />
+                <div className="">
+                  <img
+                    src="/assest/Vector 5.png"
+                    className="mt-5 float-end"
+                    alt=""
+                  />
                 </div>
               </div>
-              <h5 className="mt-4">Connaught Place, Inner Circle, New Delhi</h5>
+              <h5 className="mt-4 place" style={{ color: "gray" }}>
+                Connaught Place, Inner Circle, New Delhi
+              </h5>
             </div>
-            <div className="col-2 col-md-3 col-lg-5 p-5"></div>
-            <div className="col-5 col-md-2 col-lg-2 p-5">
+            <div className="col-2 col-md-3 col-xl-4 col-lg-5 p-5"></div>
+            <div className="col-5 col-md-2 col-lg-2 col-xl-2 p-5">
               <img
                 src="/assest/Polygon 3.png"
                 className="w-100 img-fluid"
@@ -974,7 +1059,7 @@ const CoWorkingDom = () => {
       <section>
         <div className="container mt-5">
           <div className="row">
-            <div className="col-lg-6 col-md-5 col-sm-3 col-12 text-center">
+            <div className="col-lg-6 col-md-5 col-sm-3 col-12">
               <div>
                 <h3>Similar Properties</h3>
               </div>
@@ -994,81 +1079,109 @@ const CoWorkingDom = () => {
         <div className="container">
           <div className="row d-flex flex-wrap justify-content-evenly">
             <Slider {...setting}>
-            {slider && slider.length >0 ? slider.map((e) => {
-              return (
-                <div
-                  className="col-8 col-md-4 col-lg-4 col-sm-10 col-xl-12 card-width mt-4 rounded-2 shadow"
-                  style={{ backgroundColor: "white", border:'1px solid #d7d7d9'}}
-                  key={e.city_id}
-                >
-                  <Slider {...settings} className="col-xl-12" style={{width:'100%'}}>
-                    {img.map((item) => {
-                      return (
-                        <div className="">
-                          <Link
-                             to={"/coworking/coworkingDom/"+e.id+"/"+e.name}
-                            >
-                            <img
-                              src={item? item: defaultImag}
-                              alt=""
-                              className="img-fluid rounded-top img-card"
-                            />
-                          </Link>
+              {slider && slider.length > 0 ? (
+                slider.map((e) => {
+                  return (
+                    <div
+                      className="col-8 col-md-4 col-lg-4 col-sm-10 col-xl-12 card-width mt-4 rounded-2 shadow"
+                      style={{
+                        backgroundColor: "white",
+                        border: "1px solid #d7d7d9",
+                      }}
+                      key={e.city_id}
+                    >
+                      <Slider
+                        {...settings}
+                        className="col-xl-12"
+                        style={{ width: "100%" }}
+                      >
+                        {img.map((item) => {
+                          return (
+                            <div className="">
+                              <Link
+                                to={
+                                  "/coworking/coworkingDom/" +
+                                  e.id +
+                                  "/" +
+                                  e.name
+                                }
+                              >
+                                <img
+                                  src={item ? item : defaultImag}
+                                  alt=""
+                                  className="img-fluid rounded-top img-card"
+                                />
+                              </Link>
+                            </div>
+                          );
+                        })}
+                      </Slider>
+                      <Link
+                        to={"/coworking/coworkingDom/" + e.id + "/" + e.name}
+                        className="pe-auto text-decoration-none text-dark"
+                        onClick={gotoReviewSection}
+                      >
+                        <div className="col-12 col-md-6 col-xl-12 col-lg-12 col-sm-12 mt-3 ms-3">
+                          <h5 className="adress-card">{e.name}</h5>
                         </div>
-                      );
-                    })}
-                  </Slider>
-                    <Link
-                   to={"/coworking/coworkingDom/"+e.id+"/"+e.name}
-                    className="pe-auto text-decoration-none text-dark"
-                  onClick={gotoReviewSection}
-
-                   >
-                    <div className="col-12 col-md-6 col-xl-12 col-lg-12 col-sm-12 mt-3 ms-3">
-                      <h5 className="adress-card">{e.name}</h5>
+                        <div className="col-12 col-md-12 col-lg-12 col-sm-12 mt-3 ms-3">
+                          <p style={{ color: "gray" }}>
+                            <FontAwesomeIcon
+                              icon={faLocationDot}
+                              color="gray"
+                            />{" "}
+                            {e.address}, {e.area}, {e.city_name}
+                          </p>
+                          <p style={{ color: "gray" }}>
+                            <FontAwesomeIcon
+                              icon={faChildReaching}
+                              color="gray"
+                            />{" "}
+                            Seating Capacity : {e.seat_capacity}
+                          </p>
+                          <hr style={{ width: "40%" }} />
+                        </div>
+                        <div className="col-12 col-md-6 col-lg-12 col-sm-6 ms-3">
+                          <p style={{ color: "gray" }}>Starting from</p>
+                        </div>
+                        <div
+                          className="row d-flex flex-row justify-content-between"
+                          style={{ marginTop: "-20px" }}
+                        >
+                          <div className="col-5 col-md-6 col-sm-6 ms-3 col-xl-5">
+                            <h5 className="mt-1">
+                              {e.starting_price}
+                              <spna style={{ color: "gray", fontSize: "15px" }}>
+                                /month
+                              </spna>
+                            </h5>
+                          </div>
+                          <div className="col-5 col-md-5 col-xl-5">
+                            <p className="text-end mt-2">
+                              Explore Now{" "}
+                              <FontAwesomeIcon
+                                icon={faAngleRight}
+                                color="gray"
+                                className=" fa-xs"
+                              />
+                            </p>
+                          </div>
+                        </div>
+                      </Link>
                     </div>
-                    <div className="col-12 col-md-12 col-lg-12 col-sm-12 mt-3 ms-3">
-                      <p style={{color:"gray"}}>
-                        <FontAwesomeIcon icon={faLocationDot} color="gray" />{" "}
-                        {e.address}, {e.area}, {e.city_name}
-                      </p>
-                      <p style={{color:"gray"}}>
-                        <FontAwesomeIcon icon={faChildReaching} color="gray" />{" "}
-                        Seating Capacity : {e.seat_capacity}
-                      </p>
-                      <hr style={{ width: "40%" }} />
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-12 col-sm-6 ms-3">
-                      <p style={{color:"gray"}}>Starting from</p>
-                    </div>
-                    <div className="row d-flex flex-row justify-content-between" style={{marginTop:'-20px'}}>
-                      <div className="col-5 col-md-6 col-sm-6 ms-3 col-xl-5">
-                        <h5 className="mt-1">{e.starting_price}<spna style={{color:"gray",fontSize:'15px'}}>/month</spna></h5>
-                      </div>
-                      <div className="col-5 col-md-5 col-xl-5">
-                        <p className="text-end mt-2">
-                          Explore Now{" "}
-                          <FontAwesomeIcon
-                            icon={faAngleRight}
-                            color="gray"
-                            className=" fa-xs"
-                          />
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                  </div>
-                );
-              }):(
+                  );
+                })
+              ) : (
                 <div
-                className="col-12 col-md-12 col-lg-12 col-sm-12 col-xl-12  mt-5"
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.322)" }}
-              >
-                <h3 className="text-center" style={{color:'gray'}}>Data Not Found !!</h3>
-              </div>
+                  className="col-12 col-md-12 col-lg-12 col-sm-12 col-xl-12  mt-5"
+                  style={{ backgroundColor: "rgba(255, 255, 255, 0.322)" }}
+                >
+                  <h3 className="text-center" style={{ color: "gray" }}>
+                    Data Not Found !!
+                  </h3>
+                </div>
               )}
               {/* })} */}
-
             </Slider>
           </div>
         </div>

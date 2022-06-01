@@ -42,6 +42,11 @@
     bottom: 27px;
     right: 60px;
 }
+.footer-log-img{
+    align-self: center;
+    width: 70%;
+    height: max-content;
+}
 @media(max-width:1024px){
     .footer-cover{
         height: auto;
@@ -52,8 +57,12 @@
 @media(max-width:768px){
     .footer-cover{
         height: auto;
-        border-top-right-radius: 30%;
-       
+        border-top-right-radius: 30%;       
+    }
+    .footer-log-img{
+        align-self: center;
+        width: 30% !important;
+        height: max-content;
     }
 }
 
@@ -65,7 +74,7 @@
     }
     .dot-img-first{
         width: 20%;
-        margin-top: -5rem !important;
+        margin-top: -3rem !important;
         margin-left: 16rem;
     }
     .dot-img-second{

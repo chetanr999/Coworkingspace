@@ -1,25 +1,119 @@
+.closing{
+    height:13rem;
+}
+.xl-size{
+    margin-left: 2rem !important;
+}
+.memebership{
+    min-height: auto;
+    max-height: 13rem;
+    display: flex;
+    align-items: flex-end;
+}
+.amenities{
+    margin-left: -2rem;
+}
+.ellipse-div{
+    margin-left: -3rem;
+}
+.place{
+    margin-left: -1rem !important;
+}
 .card-width{
     width: 90% !important;
     margin-left: 1rem;
     border: 1px solid gray;
 }
-
+.card-shadws{
+    background: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px rgba(173, 216, 230, 0.356);
+}
+.img-hover{
+    transition: transform .9s;
+}
+.img-hover:hover{
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+}
+.Review-btn{
+    background-color: #4343e8;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    float: right;
+    border-radius: 20px;
+    padding: 4px 10px;
+    border: none;
+}
+.btn-submit{
+    background-color: blue;
+    padding: 4px 10px;
+    border: none;
+    width: 100%;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px !important;
+}
+.btn-submit-text{
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    align-self: center;
+}
 @media(max-width:1440px){
     .coworking-card{
         width: 92% !important;
         margin-left: 1.6rem !important;
         margin-bottom: 1rem !important;
     }
+    .xl-size{
+        margin-left: -1rem !important;
+    }
+    .ellipse-div{
+        margin-left: -2rem !important;
+    }
+    .amenities{
+        margin-left: -5rem !important;
+    }
+    .ellipse-circle-div{
+        margin-left: -1rem !important;
+    }
+}
+@media(max-width:1024px){
+    .xl-size{
+        margin-left: -1rem !important;
+    }
 }
 @media(max-width:768px){
     .coworking-card{
         width: 90% !important;
+    }
+    .ellipse-div{
+        margin-left: -2rem;
     }
 }
 
 @media(max-width:425px){
     .coworking-card{
         width: 80%;
+    }
+    .xl-size{
+        margin-left: 0rem !important;
+    }
+    .amenities{
+        margin-left: -2rem !important;
+    }
+    .ellipse-circle-div{
+        margin-left: -1rem !important;
+    }
+    .btn-submit{
+        background-color: blue;
+        padding: 4px 10px;
+        border: none;
+        width: 100%;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px !important;
     }
 }
 

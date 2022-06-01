@@ -12,6 +12,9 @@ import WorkingDom from './component/coworking-workingdom/CoWorkingDom';
 import Coworking from './component/coworking-spaces/Index';
 import Coliving from './component/coliving-spaces/Index';
 import CoLivingDom from './component/coliving-workingdom/CoLivingDom';
+import SpaceType from './component/space-type/SpaceType';
+import Index from './component/space-type-details/Index';
+import SpaceTypeDom from './component/space-type-dom/SpaceTypeDom';
 
 function App() {
 
@@ -30,6 +33,9 @@ function App() {
         <Route path="/coliving/city/:id/:name" element={<Coliving />} />
         <Route path="/coworking/coworkingDom/:id/:name" element={<WorkingDom />} />
         <Route path="/coliving/colivingDom/:id/:name" element={<CoLivingDom />} />
+        <Route path="/:id/:location" element={<SpaceType /> } />
+        <Route path="/:spaceid/:spacename/:id/:name" element={<Index /> } />
+        <Route path="/space/:id/:name" element={<SpaceTypeDom /> } />
       </Routes>
     </div>
   );
