@@ -45,43 +45,43 @@ const FromUs = () => {
               />
             </div>
             <div className="col-lg-6 col-md-10 col-sm-12 ms-md-5">
-              <div className="row mt-3">
-                <div className="col-lg-1 col-sm-5 d-flex flex-row">
-                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-2" />
+              <div className="row mt-4">
+                <div className="col-lg-1 col-sm-5 col-2 col-md-2 d-flex flex-row">
+                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-0 mt-lg-2 mt-md-2" />
                 </div>
-                <div className="col-lg-10 col-md-12 col-sm-12">
+                <div className="col-lg-10 col-md-10 col-10 col-sm-12">
                   <h3 className="text">Exclusive pricing for CoFynd members</h3>
                 </div>
               </div>
               <div className="row mt-3">
-                <div className="col-lg-1 d-flex flex-row">
-                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-2" />
+                <div className="col-lg-1 col-2 col-md-2 d-flex flex-row">
+                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-0 mt-lg-2 mt-md-2" />
                 </div>
-                <div className="col-lg-10 col-md-12 col-sm-12">
+                <div className="col-lg-10 col-md-10 col-10 col-sm-12">
                   <h3 className="text">Verified Spaces and Trusted Partners</h3>
                 </div>
               </div>
               <div className="row mt-3">
-                <div className="col-lg-1 d-flex flex-row">
-                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-2" />
+                <div className="col-lg-1 col-2 col-md-2 d-flex flex-row">
+                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-0 mt-lg-2 mt-md-2" />
                 </div>
-                <div className="col-lg-10 col-md-12 col-sm-12">
+                <div className="col-lg-10 col-md-10 col-10 col-sm-12">
                   <h3 className="text">No booking service fee 100% offline</h3>
                 </div>
               </div>
               <div className="row mt-3">
-                <div className="col-lg-1 d-flex flex-row">
-                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-2" />
+                <div className="col-lg-1 col-2 col-md-2 d-flex flex-row">
+                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-0 mt-lg-2 mt-md-2" />
                 </div>
-                <div className="col-lg-10 col-md-12 col-sm-12">
+                <div className="col-lg-10 col-md-10 col-10 col-sm-12">
                   <h3 className="text">support even after you move in</h3>
                 </div>
               </div>
               <div className="row mt-3">
-                <div className="col-lg-1 d-flex flex-row">
-                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-2" />
+                <div className="col-lg-1 col-2 col-md-2 d-flex flex-row">
+                  <img src="/assest/Star.png" alt="" className="img-fluid star-img mt-0 mt-lg-2 mt-md-2" />
                 </div>
-                <div className="col-lg-10 col-md-12 col-sm-12">
+                <div className="col-lg-10 col-md-10 col-10 col-sm-12">
                   <h3 className="text">Exclusive Brand Coupon Codes</h3>
                 </div>
               </div>

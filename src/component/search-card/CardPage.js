@@ -28,7 +28,7 @@ const CardPage = () => {
                 className="img-fluid full-circle-img"
               />
             </div>
-            <div className="col-lg-4 col-md-5 col-sm-4 col-6">
+            <div className="col-lg-4 col-md-5 col-sm-4 col-9">
               <div className="d-flex flex-row justify-content-center">
                 <img src="/assest/Ellipse.png" alt="" className="circle" />
                 <h1 className="fw-bold fs-3 z-position">

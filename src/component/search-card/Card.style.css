@@ -1,65 +1,65 @@
-.wrapper{
-    height: auto;
-    position: relative;
+.wrapper {
+  height: auto;
+  position: relative;
 }
-.circle{
-    position: relative;
-    left:10px;
-    z-index: -1;
-    width: 15%;
-    top: 9px;
+.circle {
+  position: relative;
+  left: 10px;
+  z-index: -1;
+  width: 15%;
+  top: 9px;
 }
-.card{
-    height: 8rem;
-    margin: 20px 10px;
-    /* border-radius: 30px; */
-    /* box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2); */
-    background-color: rgba(255, 255, 255, 0.089);
-    text-align: center;
-    backdrop-filter: blur(14px);
-    transition: 0.3s;
-    width: auto;
-    margin-top: 20px;
-    border: none;
+.card {
+  height: 8rem;
+  margin: 20px 10px;
+  /* border-radius: 30px; */
+  /* box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2); */
+  background-color: rgba(255, 255, 255, 0.089);
+  text-align: center;
+  backdrop-filter: blur(14px);
+  transition: 0.3s;
+  width: auto;
+  margin-top: 20px;
+  border: none;
 }
-.card:hover{
-    /* box-shadow: 10px 8px 16px 0 rgba(99, 97, 97, 0.2); */
+.card:hover {
+  /* box-shadow: 10px 8px 16px 0 rgba(99, 97, 97, 0.2); */
 }
-.half-circle-img{
-    position: absolute;
-    right: 0px;
-    height:25rem;
+.half-circle-img {
+  position: absolute;
+  right: 0px;
+  height: 25rem;
 }
-.full-circle-img{
-    position: absolute;
-    left: 2px;
-    top: 50rem;
-    height:16rem;
+.full-circle-img {
+  position: absolute;
+  left: 2px;
+  top: 50rem;
+  height: 16rem;
 }
-.mobile-card-logo{
-    width: 100%;
-    height: 8rem;
-    border-radius: 30px;
-    border: 2px solid rgb(224, 224, 224);
-    backdrop-filter: blur(14px);
-    transition: 0.3s;
-    position: relative;
-    opacity: .7;
+.mobile-card-logo {
+  width: 100%;
+  height: 8rem;
+  border-radius: 30px;
+  border: 2px solid rgb(224, 224, 224);
+  backdrop-filter: blur(14px);
+  transition: 0.3s;
+  position: relative;
+  opacity: 0.7;
 }
-.mobile-card-logo:hover{
-    border: 1px solid rgb(21, 18, 226);
-    opacity: 1;
-    box-shadow: 10px 8px 16px 0 rgba(99, 97, 97, 0.2); 
+.mobile-card-logo:hover {
+  border: 1px solid rgb(21, 18, 226);
+  opacity: 1;
+  box-shadow: 10px 8px 16px 0 rgba(99, 97, 97, 0.2);
 }
-.location-name{
-    position: absolute;
-    bottom: 4px;
-    color: rgba(10, 10, 10, 0.952);
-    font-weight: bold;
+.location-name {
+  position: absolute;
+  bottom: 4px;
+  color: rgba(10, 10, 10, 0.952);
+  font-weight: bold;
 }
-.small{
-    width: 60%;
-    margin-left: 8rem;
+.small {
+  width: 60%;
+  margin-left: 8rem;
 }
 
 /* @media(max-width:2560px){
@@ -74,42 +74,52 @@
     }
 } */
 
-@media(max-width:1024px){
-    .small{
-        width: 60%;
-        margin-left: 5rem;
-    }
+@media (max-width: 1024px) {
+  .small {
+    width: 60%;
+    margin-left: 5rem;
+  }
 }
 
-@media(max-width:768px){
-    .small{
-        width: 70%;
-    }
-    .circle{
-        width: 50%;
-        top: 9px;
-    }
-    .full-circle-img{    
-        top: 58rem;
-    }
-    .card{
-        width: 30%;
-        align-items: center;
-    }
-    .mobile-card-logo{
-        margin-left: 20px;
-    }
+@media (max-width: 768px) {
+  .small {
+    width: 70%;
+  }
+  .circle {
+    width: 50%;
+    top: 9px;
+  }
+  .full-circle-img {
+    top: 58rem;
+  }
+  .card {
+    width: 30%;
+    align-items: center;
+  }
+  .mobile-card-logo {
+    margin-left: 20px;
+  }
 }
-@media(max-width:425px){
-    .small{
-        width: 50%;
-        margin-left: 4rem;
-    }
-    .card{
-        width: 70% !important;
-        align-items: center;
-    }
-    .mobile-card-logo{
-        margin-left: 20px;
-    }
+@media (max-width: 425px) {
+  .small {
+    width: 50%;
+    margin-left: 4rem;
+  }
+  .card {
+    width: 70% !important;
+    align-items: center;
+  }
+  .mobile-card-logo {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .circle {
+    width: 14%;
+    top: 9px;
+  }
+  .full-circle-img {
+    top: 68rem !important;
+}
 }

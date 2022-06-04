@@ -100,7 +100,7 @@ const Partners = () => {
             </div>
           </div>
           <div className="container mt-5">
-            <div className="row">
+            <div className="row d-flex flex-row justify-content-around">
               <div className="col-lg-4 col-md-5 col-9 flex-end d-flex flex-column">
                 <div className="d-flex flex-row">
                   <img

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function SampleNextArrow(props) {
   const { className, onClick } = props;
   return (
-    <div className={className} onClick={onClick} style={{ marginLeft: "30px" }}>
+    <div className={className} onClick={onClick} style={{ marginLeft: "30px", marginTop:'-3rem' }}>
       <img src="/assest/Vector (2).png" alt="arrow_left" />
     </div>
   );
@@ -17,7 +17,7 @@ function SampleNextArrow(props) {
 function SamplePrevArrow(props) {
   const { className, onClick } = props;
   return (
-    <div className={className} onClick={onClick} style={{ marginLeft: "20px" }}>
+    <div className={className} onClick={onClick} style={{ marginLeft: "20px", marginTop:'-3rem' }}>
       <img src="/assest/Vector (1).png" alt="arrow_left" />
     </div>
   );

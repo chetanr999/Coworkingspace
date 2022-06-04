@@ -34,7 +34,7 @@ function LiveSpaces() {
               <div className="row">
                 <div className="col-lg-8 mt-5 mobile-live-spaces">
                   <h1 className="text-white fw-bold live-spaces-text">25,000+</h1> 
-                  <h4 className="fw-bold mobile-title">Live Spaces</h4>
+                  <h4 className="fw-bold mobile-title col-12">Live Spaces</h4>
                 </div>
                 <div className="col-lg-4">
                 <img

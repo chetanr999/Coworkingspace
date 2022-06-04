@@ -89,12 +89,12 @@
 
 @media (max-width: 1440px) {
   .rectangle25 {
-    margin-left: 120px !important;
+    margin-left: 60px !important;
     width: 20%;
   }
   .rectangle24 {
     margin-left: -1rem !important;
-    margin-top: -26rem !important;
+    margin-top: -25rem !important;
   }
   .web-circle {
     width: 18%;
@@ -109,7 +109,7 @@
 }
 @media (max-width: 1024px) {
   .rectangle25 {
-    margin-left: 120px !important;
+    margin-left: 79px !important;
     width: 20%;
   }
   .rectangle24 {
@@ -271,16 +271,16 @@
   .vector {
     width: 20%;
     height: auto;
-    margin-left: 15rem;
+    margin-left: 14rem;
   }
   .rectangle25 {
     z-index: -1;
-    margin-left: 99px !important;
+    margin-left: 65px !important;
     width: 23% !important;
     margin-top: 36px !important;
   }
   .rectangle24 {
-    margin-left: -9rem !important;
+    margin-left: -7rem !important;
     margin-top: 40px !important;
     width: 82%;
   }

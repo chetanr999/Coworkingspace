@@ -42,7 +42,7 @@
         width: 85% !important;
     }
     .text{
-        font-size:3rem;
+        font-size:1.7rem;
     }
     .z-position{
         margin-top: 20px;
@@ -68,6 +68,14 @@
     .vector-img{
         margin-left: 9rem !important;
         margin-top: -1rem !important;
+    }
+    .star-img{
+        height: 20px;
+        width: 20px;
+        margin-left: 1rem !important;
+    }
+    .text{
+        font-size: 1rem !important;
     }
   
 }

@@ -25,8 +25,6 @@ function HeaderPage() {
 
   const defaultImg = "https://i.postimg.cc/qBNCdGpt/gallery-1.png";
 
-
-
   return (
     <>
       <section>
@@ -44,35 +42,35 @@ function HeaderPage() {
             <div className="col-lg-10 col-mg-8">
               <div className="row">
                 <div className="col-lg-12 col-md-12 icon-container d-flex justify-content-end">
-                  <div className="col-lg-5 col-md-12 d-flex justify-content-end me-3">
+                  <div className="col-lg-5 col-md-12 d-flex justify-content-end me-3 mt-lg-1">
                     <div className="icons">
-                      <Link to={'#'} className="pe-auto">
-                      <FontAwesomeIcon icon={faFacebook} color="#FFC727" />
+                      <Link to={"#"} className="pe-auto">
+                        <FontAwesomeIcon icon={faFacebook} color="#FFC727" />
                       </Link>
                     </div>
                     <div className="icons">
-                      <Link to={'#'} className="pe-auto">
-                      <FontAwesomeIcon icon={faEnvelope} color="#FFC727" />
+                      <Link to={"#"} className="pe-auto">
+                        <FontAwesomeIcon icon={faEnvelope} color="#FFC727" />
                       </Link>
                     </div>
                     <div className="icons">
-                      <Link to={'#'} className="pe-auto">
-                      <FontAwesomeIcon icon={faLinkedin} color="#FFC727" />
+                      <Link to={"#"} className="pe-auto">
+                        <FontAwesomeIcon icon={faLinkedin} color="#FFC727" />
                       </Link>
                     </div>
                     <div className="icons">
-                      <Link to={'#'} className="pe-auto">
-                      <FontAwesomeIcon icon={faYoutube} color="#FFC727" />
+                      <Link to={"#"} className="pe-auto">
+                        <FontAwesomeIcon icon={faYoutube} color="#FFC727" />
                       </Link>
                     </div>
                     <div className="icons">
-                      <Link to={'#'} className="pe-auto">
-                      <FontAwesomeIcon icon={faWhatsapp} color="#FFC727" />
+                      <Link to={"#"} className="pe-auto">
+                        <FontAwesomeIcon icon={faWhatsapp} color="#FFC727" />
                       </Link>
                     </div>
                     <div className="icons">
-                      <Link to={'#'} className="pe-auto">
-                      <FontAwesomeIcon icon={faInstagram} color="#FFC727" />
+                      <Link to={"#"} className="pe-auto">
+                        <FontAwesomeIcon icon={faInstagram} color="#FFC727" />
                       </Link>
                     </div>
                   </div>
@@ -80,10 +78,10 @@ function HeaderPage() {
               </div>
               <div className="row">
                 <div className="col-lg-12 col-12 col-md-12 d-flex justify-content-end ">
-                  <div className="col-lg-12 col-md-12 col-12 d-flex flex-row justify-content-end dropdown-container mobile-view">
+                  <div className="col-lg-12 col-md-12 col-12 d-flex flex-row justify-content-end dropdown-container mobile-view align-self-center">
                     <div className="dropdown">
                       <Link
-                        className="btn dropdown-toggle mobile-view"
+                        className="btn dropdown-toggle mobile-view btn-nav"
                         to="#"
                         role="button"
                         id="dropdownMenuLink"
@@ -94,15 +92,17 @@ function HeaderPage() {
                       </Link>
 
                       <ul
-                        className="dropdown-menu menu-scroll mt-2"
+                        className="dropdown-menu menu-scroll"
                         aria-labelledby="dropdownMenuLink"
                       >
-                     {city.map((e) => {
+                        {city.map((e) => {
                           return (
                             <li>
                               <Link
                                 className="dropdown-item d-flex flex-row"
-                                to={'/coworking/city/'+ e.id+"/"+e.location}
+                                to={
+                                  "/coworking/city/" + e.id + "/" + e.location
+                                }
                                 key={e.id}
                               >
                                 <img
@@ -117,10 +117,10 @@ function HeaderPage() {
                         })}
                       </ul>
                     </div>
-                   
+
                     <div className="dropdown">
                       <Link
-                        className="btn dropdown-toggle mobile-view"
+                        className="btn dropdown-toggle mobile-view btn-nav"
                         to="#"
                         role="button"
                         id="dropdownMenuLink"
@@ -131,7 +131,7 @@ function HeaderPage() {
                       </Link>
 
                       <ul
-                        className="dropdown-menu menu-scroll mt-2"
+                        className="dropdown-menu menu-scroll"
                         aria-labelledby="dropdownMenuLink"
                       >
                         {city.map((e) => {
@@ -139,15 +139,11 @@ function HeaderPage() {
                             <li>
                               <Link
                                 className="dropdown-item d-flex flex-row"
-                                to={'/coliving/city/'+ e.id+"/"+e.location}
-                                // state={{
-                                //   // id:e.id,
-                                //   name:e.location
-                                // }}
+                                to={"/coliving/city/" + e.id + "/" + e.location}
                                 key={e.id}
                               >
                                 <img
-                                   src={e.image ? e.image : defaultImg}
+                                  src={e.image ? e.image : defaultImg}
                                   className="img-fluid country-img"
                                   alt="logo"
                                 />
@@ -160,7 +156,7 @@ function HeaderPage() {
                     </div>
                     <div className="dropdown">
                       <Link
-                        className="btn dropdown-toggle mobile-view"
+                        className="btn dropdown-toggle mobile-view btn-nav"
                         to="#"
                         role="button"
                         id="dropdownMenuLink"
@@ -171,7 +167,7 @@ function HeaderPage() {
                       </Link>
 
                       <ul
-                        className="dropdown-menu menu-scroll mt-2"
+                        className="dropdown-menu menu-scroll"
                         aria-labelledby="dropdownMenuLink"
                       >
                         <li>
@@ -193,7 +189,7 @@ function HeaderPage() {
                     </div>
                     <div className="dropdown">
                       <Link
-                        className="btn dropdown-toggle mobile-view"
+                        className="btn dropdown-toggle mobile-view btn-nav"
                         to="#"
                         role="button"
                         id="dropdownMenuLink"
@@ -204,7 +200,7 @@ function HeaderPage() {
                       </Link>
 
                       <ul
-                        className="dropdown-menu menu-scroll mt-2"
+                        className="dropdown-menu menu-scroll"
                         aria-labelledby="dropdownMenuLink"
                       >
                         <li>
@@ -231,9 +227,9 @@ function HeaderPage() {
                     </div>
                     <div className="dropdown">
                       <Link
-                        className="btn mobile-view-425 mobile-375"
+                        className="btn mobile-view-425 mobile-375 btn-nav"
                         to=""
-                        id="dropdownMenuLink"                        
+                        id="dropdownMenuLink"
                       >
                         +91 9999 999999
                       </Link>

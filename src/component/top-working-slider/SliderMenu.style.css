@@ -94,7 +94,14 @@
 }
 .ellipse-39-img {
   margin-top: -50px !important;
-  margin-right: -30px !important;
+  margin-right: -5px !important;
+}
+
+@media(max-width:1440px){
+  .ellipse-39-img {
+    margin-top: -50px !important;
+    margin-right: 30px !important;
+  }
 }
 
 @media (max-width: 425px) {
@@ -113,6 +120,10 @@
   }
   .slick-next {
     right: -5px !important;
+  }
+  .ellipse-39-img {
+    margin-top: -50px !important;
+    margin-right: 31px !important;
   }
 }
 

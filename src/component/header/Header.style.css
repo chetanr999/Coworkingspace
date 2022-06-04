@@ -9,7 +9,7 @@
     width: 100%;
 }
 .icon-container{
-    height: 30px;
+    height: 35px;
     background: url('https://i.postimg.cc/rmHxtHTF/Rectangle-4.png');
     object-fit: cover;
     background-repeat: no-repeat;
@@ -18,8 +18,8 @@
 .icons{
     border-radius: 50%;
     background-color: black;
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,9 +63,11 @@
    overflow-y: scroll;
   max-height: 200px;
 }
+.btn-nav{
+    line-height: 2.5rem;
+}
 
 /* media query */
-
 
 @media (max-width: 768px) {
     .icon-container{
@@ -99,6 +101,9 @@
     .logo-img{
         width: 50%;
     }
+    .btn-nav{
+        line-height: 1.5rem !important;
+    }
 }
 
 @media(max-width:375px){
@@ -125,6 +130,9 @@
     }
     .logo-img{
         width: 50%;
+    }
+    .btn-nav{
+        line-height: 2.5rem;
     }
 
 }

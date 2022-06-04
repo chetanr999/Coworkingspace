@@ -47,12 +47,41 @@
     width: 70%;
     height: max-content;
 }
+.chat{
+    background-color: #ffffff;
+    width: 6%;
+    padding: 2%;
+    border-radius: 68%;
+    position: absolute;
+    bottom: 6rem;
+    right: 20px;
+}
+.customer{
+    background-color: #ffffff;
+    width: 6%;
+    padding: 2%;
+    border-radius: 68%;
+    position: absolute;
+    bottom: 12rem;
+    right: 1.5rem;
+
+}
+
+
 @media(max-width:1024px){
     .footer-cover{
         height: auto;
         border-top-right-radius: 30%;
-       
     }
+    .customer{
+        bottom: 10rem;  
+    }
+    .chat{
+        bottom: 5rem;
+    }
+    .img-dot {
+        display: none;
+   }
 }
 @media(max-width:768px){
     .footer-cover{
@@ -64,6 +93,18 @@
         width: 30% !important;
         height: max-content;
     }
+    .chat{
+        width: 9%;
+        padding: 2%;
+        bottom: 4rem;
+    }
+    .customer{
+        width: 9%;
+        padding: 2%;
+        bottom: 9rem;
+        
+   }
+  
 }
 
 @media(max-width:425px){
@@ -82,6 +123,16 @@
         margin-top: 15px;
         margin-left: 14rem;
     }
+    .chat{
+        width: 14%;
+        padding: 3%;
+        bottom: 4rem;
+    }
+    .customer{
+        width: 14%;
+        padding: 3%;
+        bottom: 9rem;
+    }
 }
 
 @media(max-width:375px){
@@ -89,6 +140,12 @@
         height: 80rem !important;
         border-top-right-radius: 30%;
        
+    }
+    .chat{
+        bottom: 7rem;
+    }
+    .customer{
+        bottom: 12rem;
     }
 }
 

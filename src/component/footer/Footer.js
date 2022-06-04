@@ -139,8 +139,18 @@ const Footer = () => {
           <div className="img-dot">
             <img src="/assest/Group 9.png" alt="" className="float-end" />
           </div>
-        </div>
+        <Link to={"#"}>
+          <div className="chat">
+            <img src="/assest/chat.png" className="img-fluid w-100" alt="" />
+          </div>
+        </Link>
+        <Link to={"#"}>
+          <div className="customer">
+            <img src="/assest/customer.png" className="img-fluid w-100" alt="" />
+          </div>
+        </Link>
 
+        </div>
       </section>
     </>
   );
