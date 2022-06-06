@@ -19,7 +19,7 @@ const Footer = () => {
           <div className="row first-footer-row">
             <div className="col-lg-2 d-flex justify-content-lg-center">
               <img
-               src="/assest/cozonlogo.png"
+               src="/assest/co-logo.png"
                 alt=""
                 className="footer-log-img"
               />

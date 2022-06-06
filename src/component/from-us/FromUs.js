@@ -34,8 +34,8 @@ const FromUs = () => {
           </div>
         </div>
       </section>
-      <section className="wrapper">
-        <div className="container-fluid mt-5">
+      <section>
+        <div className="container-fluid">
           <div className="row">
             <div className="col-lg-5 col-md-10 col-sm-12 d-flex justify-content-center">
               <img

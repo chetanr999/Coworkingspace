@@ -33,8 +33,8 @@ function HeaderPage() {
             <div className="col-lg-2 col-md-2 img-container bg-white">
               <Link to={"/"}>
                 <img
-                  src="/assest/cozonlogo.png"
-                  className="img-fluid mx-4 mt-2 col-md-4 col-lg-2 col-sm-4 col-12 logo-img"
+                  src="/assest/co-logo.png"
+                  className="img-fluid mx-4 mt-2 col-md-4 col-lg-2 col-sm-4 col-12 logo-img mt-4"
                   alt="logo"
                 />
               </Link>

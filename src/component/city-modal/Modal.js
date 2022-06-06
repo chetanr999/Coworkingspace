@@ -1,13 +1,17 @@
 import React from 'react';
 import './Modal.style.css';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import {  } from "@fortawesome/free-brands-svg-icons";
+
 
 const Modal = ({closeModal, id, name}) => {
   return (
-    <div className='container container-modal shadow'>
+    <div className='container-fluid container-modal shadow'>
         <div className='row'>
             <div className='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-end'>
-            <button onClick={()=>closeModal(false)} className="close rounded border-light">X</button>
+            <button onClick={()=>closeModal(false)} className="close rounded border-light float-end"><FontAwesomeIcon icon={faCircleXmark} color="black" /></button>
             </div>
             <div className='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12'>
                 <h5 className='text-center'>Find the Best Spaces in {name}</h5>

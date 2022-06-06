@@ -44,19 +44,27 @@
   backdrop-filter: blur(14px);
   transition: 0.3s;
   position: relative;
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 .mobile-card-logo:hover {
-  border: 1px solid rgb(21, 18, 226);
+  border: 1px solid rgb(229, 229, 233);
   opacity: 1;
   box-shadow: 10px 8px 16px 0 rgba(99, 97, 97, 0.2);
 }
 .location-name {
   position: absolute;
-  bottom: 4px;
+  top: 5rem;
   color: rgba(10, 10, 10, 0.952);
   font-weight: bold;
+  background-color: rgba(252, 249, 246, 0.678);
+  padding: 10px;
+  border-radius:50px;
 }
+.location-name:hover{
+   background-color: rgba(10, 10, 10, 0.705);
+   color: white;
+ }
+
 .small {
   width: 60%;
   margin-left: 8rem;

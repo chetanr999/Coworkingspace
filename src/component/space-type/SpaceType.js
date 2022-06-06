@@ -35,13 +35,13 @@ const SpaceType = () => {
           <div className="row">
             <div className="col-lg-6 col-md-6 d-flex flex-column">
               <div className="container mt-5">
-                <div className="row ms-xl-5 ms-lg-3 ms-md-3">
+                <div className="row">
                   <div className="col-lg-12 col-md-12 text-container">
-                    <p className="lh-1 fw-bold text-white ms-5x ms-lg-0 text-size">
+                    <p className="lh-1 fw-bold text-white ms-5x ms-lg-0" style={{fontSize:'2.2rem'}}>
                     Find the Best{" "}
                       <span
-                        className="fw-bold text-size-50"
-                        style={{ color: "black" }}
+                        className="fw-bold"
+                        style={{ color: "black", fontSize:'3.3rem' }}
                       >
                        {location}
                       </span>
@@ -53,7 +53,7 @@ const SpaceType = () => {
                 </div>
             
                 <div className="row d-flex flex-row justify-content-between">
-                  <div className="col-x-12 col-lg-12 col-md-12 col-12 mt-5 card-mobile-view">
+                  <div className="col-x-12 col-lg-12 col-md-12 col-12 mt-5">
                     {
                      (staticcity.length > 0
                         ? staticcity.slice(0, 12)
