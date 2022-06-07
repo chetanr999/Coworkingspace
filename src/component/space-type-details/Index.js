@@ -298,7 +298,7 @@ const Index = () => {
                             <img
                               src={item? item: defaultImag}
                               alt=""
-                              className="img-fluid rounded-top img-card"
+                              className="img-fluid rounded-top img-card mt-3"
                             />
                           </Link>
                         </div>
@@ -329,10 +329,10 @@ const Index = () => {
                     </div>
                     <div className="row d-flex flex-row justify-content-between" style={{marginTop:'-20px'}}>
                       <div className="col-6 col-md-6 col-sm-6">
-                        <h5 className="mt-1">{e.starting_price}<spna style={{color:"gray",fontSize:'15px'}}>/month</spna></h5>
+                        <h5 className="mt-3">{e.starting_price}<spna style={{color:"gray",fontSize:'15px'}}>/month</spna></h5>
                       </div>
                       <div className="col-6 col-md-6 col-sm-6">
-                        <p className="text-end mt-2">
+                        <p className="text-center p-1 mt-2 border border-secondary rounded explore-effect">
                           Explore Now{" "}
                           <FontAwesomeIcon
                             icon={faAngleRight}

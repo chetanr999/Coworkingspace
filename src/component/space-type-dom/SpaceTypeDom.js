@@ -524,8 +524,8 @@ const SpaceTypeDom = () => {
                         <img
                           src={e ? e : defaultImag}
                           alt=""
-                          className="img-fluid w-100 d-block img-hover"
-                          style={{ height: "85vh" }}
+                          className="img-fluid w-100 d-block img-hover explore-effect"
+                          // style={{ height: "85vh" }}
                         />
                       </Link>
                     </div>

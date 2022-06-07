@@ -525,8 +525,8 @@ const CoWorkingDom = () => {
                         <img
                           src={e ? e : defaultImag}
                           alt=""
-                          className="img-fluid w-100 d-block img-hover"
-                          style={{ height: "85vh" }}
+                          className="img-fluid w-100 d-block img-hover slider-size"
+                          // style={{ height: "85vh" }}
                         />
                       </Link>
                     </div>
@@ -637,7 +637,7 @@ const CoWorkingDom = () => {
                 <div className="col-md-6 col-6 col-lg-3">
                   <img
                     src="/assest/Vector 5.png"
-                    className="float-end"
+                    className="float-end about-vector"
                     alt=""
                   />
                 </div>
@@ -671,7 +671,7 @@ const CoWorkingDom = () => {
                 <div className="col-7 col-md-9 col-lg-4">
                   <img
                     src="/assest/Vector 5.png"
-                    className="float-end"
+                    className="float-end membership-vector"
                     alt=""
                   />
                 </div>
@@ -853,7 +853,7 @@ const CoWorkingDom = () => {
             {plan.map((e) => {
               return (
                 <div
-                  className="col-md-11 col-lg-11 col-11 col-xl-11 ms-3 ms-md-2 mb-4 card-shadws"
+                  className="col-md-11 col-lg-11 col-11 col-xl-10 ms-3 ms-md-2 mb-4 card-shadws-membership"
                   key={e.id}
                 >
                   <div className="row d-flex flex-row">
@@ -870,7 +870,7 @@ const CoWorkingDom = () => {
                       </div>
                       <div style={{ color: "gray" }}>{e.description}</div>
                     </div>
-                    <div className="col-md-3 col-lg-3 col-xl-3 d-flex flex-wrap align-items-center justify-content-xl-start align-content-xl-around flex-column ">
+                    <div className="col-4 col-md-3 col-lg-3 col-xl-3 d-flex flex-wrap align-items-center justify-content-xl-start align-content-xl-around flex-column ">
                       <div>
                         <p>{e.start}</p>
                       </div>
@@ -878,18 +878,19 @@ const CoWorkingDom = () => {
                         <h5>{e.price}</h5>/<spsan>{e.plan_duration}</spsan>
                       </div>
                       <div
-                        className="col-lg-4 col-xl-4"
+                        className="col-lg-4 col-xl-5 col-12"
                         style={{ cursor: "pointer" }}
                       >
                         <p
-                          className="text-center rounded rounded-3 bg-warning"
+                          className="text-center bg-warning p-1"
                           onClick={gotoEnquireSection}
+                          style={{borderRadius:'3.25rem'}}
                         >
                           Enquire
                           <FontAwesomeIcon
                             icon={faAngleDoubleRight}
-                            color="white"
-                            className=" fa-xs"
+                            color="black"
+                            className="fa-xs mx-1"
                           />{" "}
                         </p>
                       </div>
@@ -917,7 +918,7 @@ const CoWorkingDom = () => {
               <div className="col-1 col-md-1">
                 <img
                   src="/assest/Vector 5.png"
-                  className="float-end mt-5"
+                  className="float-end mt-5 vector5"
                   alt=""
                 />
               </div>
@@ -929,7 +930,7 @@ const CoWorkingDom = () => {
             {sercard.map((e) => {
               return (
                 <div
-                  className="col-md-11 col-lg-11 col-sm-12 col-11 col-xl-11 ms-3 ms-md-2 card-shadws mt-5"
+                  className="col-md-11 col-lg-11 col-sm-12 col-11 col-xl-10 ms-3 ms-md-2 card-shadws-exterprice mt-5"
                   key={e.id}
                 >
                   <div className="row d-flex flex-row mt-3">
@@ -942,18 +943,19 @@ const CoWorkingDom = () => {
                       </div>
                     </div>
                     <div
-                      className="col-md-3 align-self-center col-sm-3 col-12 col-xl-2 col-lg-3"
+                      className="col-md-3 align-self-center col-sm-3 col-12 col-xl-3 col-lg-3"
                       style={{ cursor: "pointer" }}
                     >
                       <p
-                        className="text-center w-50 bg-warning rounded-3  float-end me-xl-2"
+                        className="text-center w-50 bg-warning  float-end me-xl-5 p-1"
                         onClick={gotoEnquireSection}
+                        style={{borderRadius:'3.25rem'}}
                       >
                         Enquire
                         <FontAwesomeIcon
                           icon={faAngleDoubleRight}
-                          color="white"
-                          className=" fa-xs"
+                          color="black"
+                          className=" fa-xs mx-1"
                         />{" "}
                       </p>
                     </div>
@@ -972,8 +974,8 @@ const CoWorkingDom = () => {
               <div className="col-12 col-md-6 ms-md-5">
                 <h2 className="amenities">Amenities</h2>
               </div>
-              <div className="col-4 col-md-6 col-xl-4">
-                <img src="/assest/Vector 5.png" className="float-end" alt="" />
+              <div className="col-12 col-md-6 col-xl-4">
+                <img src="/assest/Vector 5.png" className="float-end vector-amenities" alt="" />
               </div>
             </div>
             <div className="col-md-3"></div>
@@ -988,18 +990,18 @@ const CoWorkingDom = () => {
           </div>
         </div>
         <div className="container">
-          <div className="row mt-4 d-flex flex-row justify-content-between card-shadws col-10 ms-4 col-xl-11 ms-xl-0 col-lg-11 ms-lg-0">
+          <div className="row mt-4 d-flex flex-row justify-content-between card-shadws col-10 ms-4 col-xl-10 ms-xl-0 col-lg-11 ms-lg-0">
             {amenties.map((e) => {
               return (
                 <div
-                  className="col-md-3 col-xl-3 col-6 d-flex flex-row mb-3 mt-5 ms-1"
+                  className="col-md-3 col-xl-3 col-6 d-flex flex-row mb-3 mt-3 ms-1"
                   key={e.id}
                 >
                   <div className="">
                     <img src={defImg} alt="" />
                   </div>
                   <div className="">
-                    <p className="ms-5">{e.name}</p>
+                    <p className="ms-4 mt-2">{e.name}</p>
                   </div>
                 </div>
               );
@@ -1024,7 +1026,7 @@ const CoWorkingDom = () => {
                 <div className="">
                   <img
                     src="/assest/Vector 5.png"
-                    className="mt-5 float-end"
+                    className="mt-5 float-end your-vector"
                     alt=""
                   />
                 </div>
@@ -1046,11 +1048,12 @@ const CoWorkingDom = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <img
+              {/* <img
                 src="/assest/Rectangle 46.png"
                 className="img-fluid w-100"
                 alt=""
-              />
+              /> */}
+              <iframe style={{width:'100%', height:'30rem', borderRadius:'1rem'}} src="https://maps.google.com/maps?width=720&amp;height=434&amp;hl=en&amp;q=%20Inner%20Circle,%20%20New%20Delhi+(Connaught%20Place,)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://embedmaps.net'></a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=2623e0abd259a3269cef6f6a2207ba23f4eabc6f'></script>
             </div>
           </div>
         </div>
@@ -1066,7 +1069,7 @@ const CoWorkingDom = () => {
               <div className="col-8 col-md-7 col-lg-6">
                 <img
                   src="/assest/Vector 5.png"
-                  className="float-end img-fluid"
+                  className="float-end img-fluid similar-vector"
                   alt=""
                 />
               </div>
@@ -1149,7 +1152,7 @@ const CoWorkingDom = () => {
                           style={{ marginTop: "-20px" }}
                         >
                           <div className="col-5 col-md-6 col-sm-6 ms-3 col-xl-5">
-                            <h5 className="mt-1">
+                            <h5 className="mt-3">
                               {e.starting_price}
                               <spna style={{ color: "gray", fontSize: "15px" }}>
                                 /month
@@ -1157,7 +1160,7 @@ const CoWorkingDom = () => {
                             </h5>
                           </div>
                           <div className="col-5 col-md-5 col-xl-5">
-                            <p className="text-end mt-2">
+                            <p className="text-center mt-2 p-1 border border-secondary rounded explore-effect me-2">
                               Explore Now{" "}
                               <FontAwesomeIcon
                                 icon={faAngleRight}

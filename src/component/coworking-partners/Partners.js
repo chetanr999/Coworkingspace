@@ -79,7 +79,7 @@ const Partners = () => {
           <div className="row mt-5">
             <div className="col-lg-5 col-md-12 d-flex flex-column">
               <img
-                src="/assest/Experiential.png"
+                src="/assest/co-logo.png"
                 className="Experiential"
                 alt=""
               />

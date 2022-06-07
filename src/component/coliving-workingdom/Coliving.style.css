@@ -28,6 +28,19 @@
     background: #f7f7f7;
     border-radius: 5px;
     box-shadow: 10px 10px 5px rgba(173, 216, 230, 0.356);
+    padding-left: 3rem;
+}
+.card-shadws-exterprice{
+    background: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px rgba(173, 216, 230, 0.356);
+    padding-left: 3rem;
+}
+.card-shadws-membership{
+    background: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px rgba(173, 216, 230, 0.356);
+    padding-left: 3rem;
 }
 .img-hover{
     transition: transform .9s;
@@ -55,6 +68,18 @@
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px !important;
 }
+.btn-submit-text{
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    align-self: center;
+}
+.slider-size{
+    height: 85vh;
+}
+input:focus {
+    outline:none;
+}
 
 @media(max-width:1440px){
     .coworking-card{
@@ -74,10 +99,60 @@
     .ellipse-circle-div{
         margin-left: -1rem !important;
     }
+    .about-vector{
+        position: absolute;
+        left: 17rem !important;
+    }
+    .membership-vector{
+        position: absolute;
+        left: 20rem !important;
+    }
+    .vector5{
+        position: absolute;
+        left: 21rem !important;
+    }
+    .vector-amenities{
+        position: absolute;
+        left: 13rem !important;
+    }
+    .your-vector{
+        position: absolute;
+        left: 15rem !important;
+    }
+    .similar-vector{
+        position: absolute;
+        left: 17rem !important;
+    }
 }
+
+
 @media(max-width:1024px){
     .xl-size{
         margin-left: -1rem !important;
+    }
+    .about-vector{
+        position: absolute;
+        left: 12rem !important;
+    }
+    .membership-vector{
+        position: absolute;
+        left: 15rem !important;
+    }
+    .vector5{
+        position: absolute;
+        left: 15rem !important;
+    }
+    .vector-amenities{
+        position: absolute;
+        left: 8rem !important;
+    }
+    .your-vector{
+        position: absolute;
+        left: 10rem !important;
+    }
+    .similar-vector{
+        position: absolute;
+        left: 12rem !important;
     }
 }
 @media(max-width:768px){
@@ -86,6 +161,33 @@
     }
     .ellipse-div{
         margin-left: -2rem;
+    }
+    .slider-size{
+        height: 50vh;
+    }
+    .about-vector{
+        position: absolute;
+        left: 11rem !important;
+    }
+    .membership-vector{
+        position: absolute;
+        left: 13rem !important;
+    }
+    .vector5{
+        position: absolute;
+        left: 13rem !important;
+    }
+    .vector-amenities{
+        position: absolute;
+        left: 7rem !important;
+    }
+    .your-vector{
+        position: absolute;
+        left: 10rem !important;
+    }
+    .similar-vector{
+        position: absolute;
+        left: 11rem !important;
     }
 }
 
@@ -101,6 +203,81 @@
     }
     .ellipse-circle-div{
         margin-left: -1rem !important;
+    }
+    .btn-submit{
+        background-color: blue;
+        padding: 4px 10px;
+        border: none;
+        width: 100%;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px !important;
+    }
+    .slider-size{
+        height: 35vh;
+    }
+    .about-vector{
+        position: absolute;
+        left: 8rem !important;
+    }
+    .membership-vector{
+        position: absolute;
+        left: 10rem !important;
+    }
+    .vector5{
+        position: absolute;
+        left: 11rem !important;
+    }
+    .vector-amenities{
+        position: absolute;
+        left: 5rem !important;
+    }
+    .your-vector{
+        position: absolute;
+        left: 8rem !important;
+    }
+    .similar-vector{
+        position: absolute;
+        left: 8rem !important;
+    }
+    .card-shadws-membership{
+        background: #f7f7f7;
+        border-radius: 5px;
+        box-shadow: 10px 10px 5px rgba(173, 216, 230, 0.356);
+        padding-left: 2rem !important;
+        padding-top: 1rem !important;
+    }
+    .card-shadws-exterprice{
+        background: #f7f7f7;
+        border-radius: 5px;
+        box-shadow: 10px 10px 5px rgba(173, 216, 230, 0.356);
+        padding-left: 1rem !important;
+    }
+}
+
+@media(max-width:375px){
+    .slider-size{
+        height: 30vh;
+    }
+    .card-shadws-membershipss{
+        background: #f7f7f7;
+        border-radius: 5px;
+        box-shadow: 10px 10px 5px rgba(173, 216, 230, 0.356);
+        padding-left: 1rem !important;
+        padding-top: 1rem !important;
+    }
+    .card-shadws-exterprice{
+        background: #f7f7f7;
+        border-radius: 5px;
+        box-shadow: 10px 10px 5px rgba(173, 216, 230, 0.356);
+        padding-left: 1rem !important;
+    }
+    .about-vector{
+        position: absolute;
+        left: 7rem !important;
+    }
+    .membership-vector{
+        position: absolute;
+        left: 9rem !important;
     }
 }
 

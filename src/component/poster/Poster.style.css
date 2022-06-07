@@ -15,7 +15,7 @@
      text-transform: capitalize;
      -webkit-transition: .5s ease-in;
      transition: all ease-in .5s;
-     padding: 0;
+     padding-top: 12px;
      outline: 0;
      vertical-align: middle;
      margin-top: 10px;

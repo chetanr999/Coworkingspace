@@ -106,6 +106,18 @@
   .web-lg{
     margin-left: 14rem !important; 
    }
+   .Experiential {
+    height: auto;
+    width: 80%;
+    margin-left: 8rem;
+    margin-top: 9rem;
+  }
+  .vector {
+    width: 55%;
+    height: auto;
+    margin-left: 17rem;
+    margin-top: 1rem;
+  }
 }
 @media (max-width: 1024px) {
   .rectangle25 {
@@ -126,12 +138,25 @@
   .web-lg{
    margin-left: 13rem !important; 
   }
+  .Experiential {
+    height: auto;
+    width: 80%;
+    margin-left: 8rem !important;
+    margin-top: 9rem !important;
+  }
+  .vector {
+    width: 55%;
+    height: auto;
+    margin-left: 14rem !important;
+    margin-top: 1rem !important;
+  }
 }
 
 @media (max-width: 768px) {
   .rectangle25 {
     z-index: -1;
     margin-left: 98px !important;
+    margin-top: 7rem !important;
     width: 27%;
   }
   .rectangle24 {
@@ -147,6 +172,18 @@
   .web-lg{
     margin-left: 12rem !important; 
    }
+   .Experiential {
+    height: auto;
+    width: 80%;
+    margin-left: 3rem !important;
+    margin-top: 9rem !important;
+  }
+  .vector {
+    width: 55%;
+    height: auto;
+    margin-left: 14rem !important;
+    margin-top: 1rem !important;
+  }
   }
 
 @media (max-width: 425px) {
@@ -186,13 +223,13 @@
   .Experiential {
     height: auto;
     width: 60%;
-    margin-left: 5rem;
-    margin-top: 5rem;
+    margin-left: 5rem !important;
+    margin-top: 1rem !important;
   }
   .vector {
-    width: 20%;
+    width: 40%;
     height: auto;
-    margin-left: 15rem;
+    margin-left: 10rem !important;
   }
   .rectangle25 {
     z-index: -1;
@@ -269,9 +306,9 @@
     margin-top: 5rem;
   }
   .vector {
-    width: 20%;
+    width: 41%;
     height: auto;
-    margin-left: 14rem;
+    margin-left: 9rem !important;
   }
   .rectangle25 {
     z-index: -1;

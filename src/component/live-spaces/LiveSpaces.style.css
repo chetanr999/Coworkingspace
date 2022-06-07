@@ -39,9 +39,30 @@
     margin-left: 5rem;
 }
 .live-spaces-text{
-    margin-left: -6rem !important;
-    font-size:4rem;
-    word-spacing: 4px;
+    margin-left: 0rem !important;
+    font-size: 4rem;
+    word-spacing: 12px;
+}
+.Polygons-shape{
+    position: absolute;
+    top: 95rem;
+    left: 46rem;
+}
+.mobile-title{
+    margin-left: 105px;
+}
+.mobile-location{
+    width: 30%;
+    /* margin-top: -22px !important; */
+    margin-left: 8rem !important;
+}
+.cities-div{
+    /* margin-top: -58px !important;  */
+    width: 30%;
+    margin-left: 11rem !important;
+}
+.last-dots{
+    margin-left: -10rem !important;
 }
 
 @media(max-width:2560px) {
@@ -111,6 +132,11 @@
         margin-top: 0rem !important;
         
     }
+    .Polygons-shape{
+        position: absolute;
+        top: 103rem;
+        left: 37rem;
+    }
       
 }
 
@@ -167,6 +193,9 @@
     .last-dots{
         margin-left: -8rem !important;
     }
+    .Polygons-shape{
+        display: none;    }
+    
 }
 
 
@@ -225,7 +254,10 @@
     .last-dots{
         margin-left: -17rem !important;
     }
-
+    .Polygons-shape{
+       display: none;
+    }
+}
     @media (max-width:375px) {
         .ellipse-shape{
             width: 78% !important;
@@ -239,8 +271,11 @@
             margin-top: -3rem !important;
             
         }
+        .Polygons-shape{
+           display: none;
+        }
 
     }
   
 
-}
+

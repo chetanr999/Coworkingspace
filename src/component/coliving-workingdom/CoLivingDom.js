@@ -3,7 +3,7 @@ import HeaderPage from "../header/HeaderPage";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
@@ -57,7 +57,7 @@ function Prev(props) {
       <img
         src="/assest/Vector (1).png"
         alt="arrow_left"
-      style={{ marginTop: "-28px", marginLeft: "-8px" }}
+        style={{ marginTop: "-28px", marginLeft: "-8px" }}
       />
     </div>
   );
@@ -175,9 +175,9 @@ const CoLivingDom = () => {
   const [property_id, setPropertyId] = useState("");
   const [review, setReview] = useState("");
   const EnquireSection = useRef(null);
-  const RevireSection =useRef(null);
+  const RevireSection = useRef(null);
   let { id } = useParams();
-  
+
   const user_id = 2;
   const defImg = "/assest/office1.png";
   const image = "/assest/image 1.png";
@@ -196,26 +196,24 @@ const CoLivingDom = () => {
       behavior: "smooth",
     });
   };
-  
 
-  const nameHandler =(e)=>{
+  const nameHandler = (e) => {
     // const name= e.target.name;
     const value = e.target.value;
     setName(value);
-  }
-  const emaiHandler =(e)=>{
+  };
+  const emaiHandler = (e) => {
     const value = e.target.value;
     setEmail(value);
-  }
-  const mobileHandler =(e)=>{
+  };
+  const mobileHandler = (e) => {
     const value = e.target.value;
     setMobileNo(value);
-  }
- 
+  };
+
   const handlerPerson = (e) => {
     setPersons(e);
   };
-
 
   useEffect(() => {
     fetch(`https://cozone.divashudh.com/api/get_similar_property/${cityid}`)
@@ -223,7 +221,7 @@ const CoLivingDom = () => {
       .then((res) => {
         setSlider(res.data);
       });
-  },[cityid]);
+  }, [cityid]);
 
   useEffect(() => {
     fetch(`https://cozone.divashudh.com/api/get_property_details/${id}`)
@@ -243,7 +241,6 @@ const CoLivingDom = () => {
         setList([...res.data.membership_plans, ...res.data.enterprise]);
       });
   }, [id]);
-
 
   useEffect(() => {
     fetch("https://cozone.divashudh.com/api/get_add_spaces")
@@ -313,7 +310,7 @@ const CoLivingDom = () => {
     await fetch("https://cozone.divashudh.com/api/save_enquiry", {
       method: "POST",
       headers: {
-        "Accept": "application/json",
+        Accept: "application/json",
         "Content-type": "application/json",
       },
       body: JSON.stringify({
@@ -325,55 +322,54 @@ const CoLivingDom = () => {
         property_id: property_id,
       }),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      if(data.code === 200){
-        const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                      toast.addEventListener("mouseenter", Swal.stopTimer);
-                      toast.addEventListener("mouseleave", Swal.resumeTimer);
-                    },
-                  });
-      
-                  Toast.fire({
-                    icon: "success",
-                    title: `${data.message}`,
-                  });
-                  setMobileNo("");
-                  setEmail("");
-                  setName("");
-                  setSpaceType("");
-                  setPersons("");
-      }else{
-        const error = data.message[0]
-        const Toast = Swal.mixin({
-              toast: true,
-              position: "top-end",
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener("mouseenter", Swal.stopTimer);
-                toast.addEventListener("mouseleave", Swal.resumeTimer);
-              },
-            });
-      
-            Toast.fire({
-              icon: "warning",
-              title: `${error}`,
-            });
-      }
-    })
-    .catch((error) => {
-      alert(error);
-    });
-    };
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.code === 200) {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
 
+          Toast.fire({
+            icon: "success",
+            title: `${data.message}`,
+          });
+          setMobileNo("");
+          setEmail("");
+          setName("");
+          setSpaceType("");
+          setPersons("");
+        } else {
+          const error = data.message[0];
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+
+          Toast.fire({
+            icon: "warning",
+            title: `${error}`,
+          });
+        }
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
   var setting = {
     defaultArrows: false,
@@ -514,7 +510,6 @@ const CoLivingDom = () => {
     ],
   };
 
-
   return (
     <>
       <section>
@@ -530,8 +525,8 @@ const CoLivingDom = () => {
                         <img
                           src={e ? e : defaultImag}
                           alt=""
-                          className="img-fluid w-100 d-block img-hover"
-                          style={{ height: "85vh" }}
+                          className="img-fluid w-100 d-block img-hover slider-size"
+                          // style={{ height: "85vh" }}
                         />
                       </Link>
                     </div>
@@ -550,7 +545,11 @@ const CoLivingDom = () => {
               <div className="column">
                 <div className="col-12 col-md-12 col-lg-12 col-sm-12 col-xl-12 d-flex flex-row">
                   <div>
-                    <img src="/assest/Ellipse 40.png" alt="" className="ellipse-circle-div" />
+                    <img
+                      src="/assest/Ellipse 40.png"
+                      alt=""
+                      className="ellipse-circle-div"
+                    />
                   </div>
                   <div
                     className="col-lg-12 col-12 d-flex flex-row justify-content-evenly"
@@ -626,7 +625,7 @@ const CoLivingDom = () => {
                   </div>
                 </div>
                 <div className="col-md-12 col-12 col-lg-12">
-                  <p className="fs-5 ms-2"  style={{color:'gray'}}>
+                  <p className="fs-5 ms-2" style={{ color: "gray" }}>
                     <FontAwesomeIcon icon={faLocationDot} color="gray" />{" "}
                     {address}, {area}
                   </p>
@@ -638,22 +637,24 @@ const CoLivingDom = () => {
                 <div className="col-md-6 col-6 col-lg-3">
                   <img
                     src="/assest/Vector 5.png"
-                    className="float-end"
+                    className="float-end about-vector"
                     alt=""
                   />
                 </div>
                 <div className="col-12 col-md-12 col-lg-12 col-sm-12 mt-5">
-                  <p className="mb-5"  style={{color:'gray'}}>{about}</p>
+                  <p className="mb-5" style={{ color: "gray" }}>
+                    {about}
+                  </p>
                 </div>
                 <div className="row d-flex flex-row mt-5 mb-5">
                   <div className="col-10 col-md-6 col-lg-6 col-sm-12">
-                    <p  style={{color:'gray'}}>
+                    <p style={{ color: "gray" }}>
                       Mon - Fri : {open} to {close} PM
                     </p>
-                    <p  style={{color:'gray'}}>
+                    <p style={{ color: "gray" }}>
                       Sat : {open} AM to {close}
                     </p>
-                    <p  style={{color:'gray'}}>PM Sun : Closed</p>
+                    <p style={{ color: "gray" }}>PM Sun : Closed</p>
                   </div>
                   <div className="col-2 col-md-4 col-lg-4 d-flex justify-content-center align-self-center">
                     <img
@@ -670,7 +671,7 @@ const CoLivingDom = () => {
                 <div className="col-7 col-md-9 col-lg-4">
                   <img
                     src="/assest/Vector 5.png"
-                    className="float-end"
+                    className="float-end membership-vector"
                     alt=""
                   />
                 </div>
@@ -679,7 +680,7 @@ const CoLivingDom = () => {
             <div className="col-12 col-md-6 col-lg-4 col-sm-6 d-flex mt-3">
               <div className="column">
                 <div className="row d-flex flex-wrap ms-lg-2">
-                {img.slice(0,4).map((e) => {
+                  {img.slice(0,4).map((e) => {
                     return (
                       <div className="col-12 col-md-6 col-lg-5 col-sm-12 col-xl-6 mb-sm-2 mb-3">
                         <img
@@ -695,6 +696,7 @@ const CoLivingDom = () => {
                       </div>
                     );
                   })}
+                
                 </div>
 
                 <div
@@ -851,7 +853,7 @@ const CoLivingDom = () => {
             {plan.map((e) => {
               return (
                 <div
-                  className="col-md-11 col-lg-11 col-11 col-xl-11 ms-3 ms-md-2 mb-4 card-shadws"
+                  className="col-md-11 col-lg-11 col-11 col-xl-10 ms-3 ms-md-2 mb-4 card-shadws-membership"
                   key={e.id}
                 >
                   <div className="row d-flex flex-row">
@@ -866,18 +868,23 @@ const CoLivingDom = () => {
                       <div>
                         <h5>{e.plan_name}</h5>
                       </div>
-                      <div style={{color:'gray'}}>{e.description}</div>
+                      <div style={{ color: "gray" }}>{e.description}</div>
                     </div>
-                    <div className="col-md-3 col-lg-3 col-xl-3 d-flex flex-wrap align-items-center justify-content-xl-start align-content-xl-around flex-column "
-                   >
+                    <div className="col-4 col-md-3 col-lg-3 col-xl-3 d-flex flex-wrap align-items-center justify-content-xl-start align-content-xl-around flex-column ">
                       <div>
                         <p>{e.start}</p>
                       </div>
                       <div className="d-flex flex-row">
                         <h5>{e.price}</h5>/<spsan>{e.plan_duration}</spsan>
                       </div>
-                      <div className="col-lg-4 col-xl-4" style={{cursor:'pointer'}}>
-                        <p className="text-center rounded rounded-3 bg-warning" onClick={gotoEnquireSection}>
+                      <div
+                        className="col-lg-4 col-xl-4 col-12"
+                        style={{ cursor: "pointer" }}
+                      >
+                        <p
+                          className="text-center rounded rounded-3 bg-warning"
+                          onClick={gotoEnquireSection}
+                        >
                           Enquire
                           <FontAwesomeIcon
                             icon={faAngleDoubleRight}
@@ -903,14 +910,14 @@ const CoLivingDom = () => {
                 <img src="/assest/Ellipse 40.png" alt="" />
               </div>
               <div className="mt-2">
-                <h2 className="" style={{ marginLeft: "-20px"}}>
+                <h2 className="" style={{ marginLeft: "-20px" }}>
                   Enterprise Services
                 </h2>
               </div>
               <div className="col-1 col-md-1">
                 <img
                   src="/assest/Vector 5.png"
-                  className="float-end mt-5"
+                  className="float-end mt-5 vector5"
                   alt=""
                 />
               </div>
@@ -922,7 +929,7 @@ const CoLivingDom = () => {
             {sercard.map((e) => {
               return (
                 <div
-                  className="col-md-11 col-lg-11 col-sm-12 col-11 col-xl-11 ms-3 ms-md-2 card-shadws mt-5"
+                  className="col-md-11 col-lg-11 col-sm-12 col-11 col-xl-10 ms-3 ms-md-2 card-shadws-exterprice mt-5"
                   key={e.id}
                 >
                   <div className="row d-flex flex-row mt-3">
@@ -931,10 +938,13 @@ const CoLivingDom = () => {
                         <h2>{e.plan_name}</h2>
                       </div>
                       <div>
-                        <p  style={{color:'gray'}}>{e.description}</p>
+                        <p style={{ color: "gray" }}>{e.description}</p>
                       </div>
                     </div>
-                    <div className="col-md-3 align-self-center col-sm-3 col-12 col-xl-2 col-lg-3" style={{cursor:'pointer'}}>
+                    <div
+                      className="col-md-3 align-self-center col-sm-3 col-12 col-xl-2 col-lg-3"
+                      style={{ cursor: "pointer" }}
+                    >
                       <p
                         className="text-center w-50 bg-warning rounded-3  float-end me-xl-2"
                         onClick={gotoEnquireSection}
@@ -962,8 +972,8 @@ const CoLivingDom = () => {
               <div className="col-12 col-md-6 ms-md-5">
                 <h2 className="amenities">Amenities</h2>
               </div>
-              <div className="col-4 col-md-6 col-xl-4">
-                <img src="/assest/Vector 5.png" className="float-end" alt="" />
+              <div className="col-12 col-md-6 col-xl-4">
+                <img src="/assest/Vector 5.png" className="float-end vector-amenities" alt="" />
               </div>
             </div>
             <div className="col-md-3"></div>
@@ -978,20 +988,18 @@ const CoLivingDom = () => {
           </div>
         </div>
         <div className="container">
-          <div
-            className="row mt-4 d-flex flex-row justify-content-between card-shadws col-10 ms-4 col-xl-11 ms-xl-0 col-lg-11 ms-lg-0"
-          >
+          <div className="row mt-4 d-flex flex-row justify-content-between card-shadws col-10 ms-4 col-xl-10 ms-xl-0 col-lg-11 ms-lg-0">
             {amenties.map((e) => {
               return (
                 <div
-                  className="col-md-3 col-xl-3 col-6 d-flex flex-row mb-3 mt-5 ms-1"
+                  className="col-md-3 col-xl-3 col-6 d-flex flex-row mb-3 mt-3 ms-1"
                   key={e.id}
                 >
                   <div className="">
                     <img src={defImg} alt="" />
                   </div>
                   <div className="">
-                    <p className="ms-5">{e.name}</p>
+                    <p className="ms-4 mt-2">{e.name}</p>
                   </div>
                 </div>
               );
@@ -1011,13 +1019,19 @@ const CoLivingDom = () => {
                 <div className="col-6">
                   <h4 style={{ marginLeft: "-20px", marginTop: "10px" }}>
                     You'll work here
-                  </h4> 
+                  </h4>
                 </div>
                 <div className="">
-                  <img src="/assest/Vector 5.png" className="mt-5 float-end" alt="" />
+                  <img
+                    src="/assest/Vector 5.png"
+                    className="mt-5 float-end your-vector"
+                    alt=""
+                  />
                 </div>
               </div>
-              <h5 className="mt-4 place"  style={{color:'gray'}}>Connaught Place, Inner Circle, New Delhi</h5>
+              <h5 className="mt-4 place" style={{ color: "gray" }}>
+                Connaught Place, Inner Circle, New Delhi
+              </h5>
             </div>
             <div className="col-2 col-md-3 col-xl-4 col-lg-5 p-5"></div>
             <div className="col-5 col-md-2 col-lg-2 col-xl-2 p-5">
@@ -1032,11 +1046,12 @@ const CoLivingDom = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <img
+              {/* <img
                 src="/assest/Rectangle 46.png"
                 className="img-fluid w-100"
                 alt=""
-              />
+              /> */}
+              <iframe style={{width:'100%', height:'30rem', borderRadius:'1rem'}} src="https://maps.google.com/maps?width=720&amp;height=434&amp;hl=en&amp;q=%20Inner%20Circle,%20%20New%20Delhi+(Connaught%20Place,)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://embedmaps.net'></a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=2623e0abd259a3269cef6f6a2207ba23f4eabc6f'></script>
             </div>
           </div>
         </div>
@@ -1052,7 +1067,7 @@ const CoLivingDom = () => {
               <div className="col-8 col-md-7 col-lg-6">
                 <img
                   src="/assest/Vector 5.png"
-                  className="float-end img-fluid"
+                  className="float-end img-fluid similar-vector"
                   alt=""
                 />
               </div>
@@ -1065,81 +1080,109 @@ const CoLivingDom = () => {
         <div className="container">
           <div className="row d-flex flex-wrap justify-content-evenly">
             <Slider {...setting}>
-            {slider && slider.length >0 ? slider.map((e) => {
-              return (
-                <div
-                  className="col-8 col-md-4 col-lg-4 col-sm-10 col-xl-12 card-width mt-4 rounded-2 shadow"
-                  style={{ backgroundColor: "white", border:'1px solid #d7d7d9'}}
-                  key={e.city_id}
-                >
-                  <Slider {...settings} className="col-xl-12" style={{width:'100%'}}>
-                    {img.map((item) => {
-                      return (
-                        <div className="">
-                          <Link
-                             to={"/coliving/colivingDom/"+e.id+"/"+e.name}
-                            >
-                            <img
-                              src={item? item: defaultImag}
-                              alt=""
-                              className="img-fluid rounded-top img-card"
-                            />
-                          </Link>
+              {slider && slider.length > 0 ? (
+                slider.map((e) => {
+                  return (
+                    <div
+                      className="col-8 col-md-4 col-lg-4 col-sm-10 col-xl-12 card-width mt-4 rounded-2 shadow"
+                      style={{
+                        backgroundColor: "white",
+                        border: "1px solid #d7d7d9",
+                      }}
+                      key={e.city_id}
+                    >
+                      <Slider
+                        {...settings}
+                        className="col-xl-12"
+                        style={{ width: "100%" }}
+                      >
+                        {img.map((item) => {
+                          return (
+                            <div className="">
+                              <Link
+                                to={
+                                  "/coliving/colivingDom/" +
+                                  e.id +
+                                  "/" +
+                                  e.name
+                                }
+                              >
+                                <img
+                                  src={item ? item : defaultImag}
+                                  alt=""
+                                  className="img-fluid rounded-top img-card"
+                                />
+                              </Link>
+                            </div>
+                          );
+                        })}
+                      </Slider>
+                      <Link
+                        to={"/coliving/colivingDom/" + e.id + "/" + e.name}
+                        className="pe-auto text-decoration-none text-dark"
+                        onClick={gotoReviewSection}
+                      >
+                        <div className="col-12 col-md-6 col-xl-12 col-lg-12 col-sm-12 mt-3 ms-3">
+                          <h5 className="adress-card">{e.name}</h5>
                         </div>
-                      );
-                    })}
-                  </Slider>
-                    <Link
-                   to={"/coliving/colivingDom/"+e.id+"/"+e.name}
-                    className="pe-auto text-decoration-none text-dark"
-                  onClick={gotoReviewSection}
-
-                   >
-                    <div className="col-12 col-md-6 col-xl-12 col-lg-12 col-sm-12 mt-3 ms-3">
-                      <h5 className="adress-card">{e.name}</h5>
+                        <div className="col-12 col-md-12 col-lg-12 col-sm-12 mt-3 ms-3">
+                          <p style={{ color: "gray" }}>
+                            <FontAwesomeIcon
+                              icon={faLocationDot}
+                              color="gray"
+                            />{" "}
+                            {e.address}, {e.area}, {e.city_name}
+                          </p>
+                          <p style={{ color: "gray" }}>
+                            <FontAwesomeIcon
+                              icon={faChildReaching}
+                              color="gray"
+                            />{" "}
+                            Seating Capacity : {e.seat_capacity}
+                          </p>
+                          <hr style={{ width: "40%" }} />
+                        </div>
+                        <div className="col-12 col-md-6 col-lg-12 col-sm-6 ms-3">
+                          <p style={{ color: "gray" }}>Starting from</p>
+                        </div>
+                        <div
+                          className="row d-flex flex-row justify-content-between"
+                          style={{ marginTop: "-20px" }}
+                        >
+                          <div className="col-5 col-md-6 col-sm-6 ms-3 col-xl-5">
+                            <h5 className="mt-3">
+                              {e.starting_price}
+                              <spna style={{ color: "gray", fontSize: "15px" }}>
+                                /month
+                              </spna>
+                            </h5>
+                          </div>
+                          <div className="col-5 col-md-5 col-xl-5">
+                            <p className="text-center mt-2 p-1 border border-secondary rounded explore-effect me-2">
+                              Explore Now{" "}
+                              <FontAwesomeIcon
+                                icon={faAngleRight}
+                                color="gray"
+                                className=" fa-xs"
+                              />
+                            </p>
+                          </div>
+                        </div>
+                      </Link>
                     </div>
-                    <div className="col-12 col-md-12 col-lg-12 col-sm-12 mt-3 ms-3">
-                      <p style={{color:"gray"}}>
-                        <FontAwesomeIcon icon={faLocationDot} color="gray" />{" "}
-                        {e.address}, {e.area}, {e.city_name}
-                      </p>
-                      <p style={{color:"gray"}}>
-                        <FontAwesomeIcon icon={faChildReaching} color="gray" />{" "}
-                        Seating Capacity : {e.seat_capacity}
-                      </p>
-                      <hr style={{ width: "40%" }} />
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-12 col-sm-6 ms-3">
-                      <p style={{color:"gray"}}>Starting from</p>
-                    </div>
-                    <div className="row d-flex flex-row justify-content-between" style={{marginTop:'-20px'}}>
-                      <div className="col-5 col-md-6 col-sm-6 ms-3 col-xl-5">
-                        <h5 className="mt-1">{e.starting_price}<spna style={{color:"gray",fontSize:'15px'}}>/month</spna></h5>
-                      </div>
-                      <div className="col-5 col-md-5 col-xl-5">
-                        <p className="text-end mt-2">
-                          Explore Now{" "}
-                          <FontAwesomeIcon
-                            icon={faAngleRight}
-                            color="gray"
-                            className=" fa-xs"
-                          />
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                  </div>
-                );
-              }):(
+                  );
+                })
+              ) : (
                 <div
-                className="col-12 col-md-12 col-lg-12 col-sm-12 col-xl-12  mt-5"
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.322)" }}
-              >
-                <h3 className="text-center" style={{color:'gray'}}>Data Not Found !!</h3>
-              </div>
+                  className="col-12 col-md-12 col-lg-12 col-sm-12 col-xl-12  mt-5"
+                  style={{ backgroundColor: "rgba(255, 255, 255, 0.322)" }}
+                >
+                  <h3 className="text-center" style={{ color: "gray" }}>
+                    Data Not Found !!
+                  </h3>
+                </div>
               )}
               {/* })} */}
-
             </Slider>
           </div>
         </div>

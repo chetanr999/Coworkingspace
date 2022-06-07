@@ -55,6 +55,13 @@
       -webkit-transform: scale(1.1); /* Safari 3-8 */
       transform: scale(1.1); 
   }
+  .explore-effect:hover{
+    color: rgb(255, 250, 250);
+    box-shadow: 2px rgba(18, 18, 19, 0.644);
+    background-color: rgba(2, 9, 12, 0.733);
+    border: 1px solid rgb(230, 121, 31);
+  }
+  
   
   
   @media (max-width: 1440px) {

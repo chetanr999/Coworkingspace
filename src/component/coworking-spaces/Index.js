@@ -316,7 +316,7 @@ const Index = () => {
                               <img
                                 src={item ? item : defaultImag}
                                 alt=""
-                                className="img-fluid rounded-top img-card"
+                                className="img-fluid rounded-top img-card mt-3"
                               />
                             </Link>
                           </div>
@@ -352,7 +352,7 @@ const Index = () => {
                         style={{ marginTop: "-20px" }}
                       >
                         <div className="col-6 col-md-6 col-sm-6">
-                          <h5 className="mt-1">
+                          <h5 className="mt-3">
                             {e.starting_price}
                             <spna style={{ color: "gray", fontSize: "15px" }}>
                               /month
@@ -360,12 +360,12 @@ const Index = () => {
                           </h5>
                         </div>
                         <div className="col-6 col-md-6 col-sm-6">
-                          <p className="text-end mt-2">
+                          <p className="text-center mt-2 p-1 border border-secondary rounded explore-effect">
                             Explore Now{" "}
                             <FontAwesomeIcon
                               icon={faAngleRight}
                               color="gray"
-                              className=" fa-xs"
+                              className="fa-xs"
                             />
                           </p>
                         </div>

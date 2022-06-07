@@ -27,6 +27,11 @@ function LiveSpaces() {
                     alt=""
                     className="img-fluid ellipse-shape"
                   />
+                  <img
+                    src="/assest/Polygon 1.png"
+                    alt=""
+                    className="img-fluid Polygons-shape"
+                  />
                 </div>
               </div>
             </div>
