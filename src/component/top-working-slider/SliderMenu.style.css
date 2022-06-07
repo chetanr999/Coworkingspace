@@ -57,8 +57,9 @@
 }
 
 .slider-img {
-  width: 80% !important;
-  margin-left: 1rem;
+  width: 40% !important;
+  margin-left: 4rem;
+  margin-top: 1rem;
   transition: transform .9s ease-in-out;
 }
 
@@ -75,12 +76,15 @@
   text-align: center;
   backdrop-filter: blur(14px);
   transition: 0.3s;
-  width: 60% !important;
+  width: 80% !important;
+  /* padding: 3rem; */
+  height: 12rem;
   border: 1px solid white;
-  margin-left: 53px !important;
+  margin-left: 30px !important;
   background: linear-gradient(rgba(250, 244, 244, 0.2), rgba(236, 229, 229, 0.2), #0d0d0ee3 100%, #27c9c9 100%);
   background-size: 100% 200%;
   transition: background 1s;
+
 }
 .main-silder-div:hover{
   background-position: 50% 60%;
